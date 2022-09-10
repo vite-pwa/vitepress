@@ -15,14 +15,12 @@ export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<Theme
   const { pwa = {}, ...vitePressOptions } = userOptions
 
   const {
-    buildEnd,
+    buildEnd: userBuildEnd,
     defaultMode = 'production',
     ...pwaPluginOptions
   } = pwa
 
   plugins.push(VitePWA({ ...pwaPluginOptions }))
-
-  const userBuildEnd = pwa.buildEnd
 
   userOptions.buildEnd = async (config) => {
     await userBuildEnd?.(config)
