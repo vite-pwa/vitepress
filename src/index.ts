@@ -1,14 +1,14 @@
 import type { UserConfig } from 'vitepress'
-import { defineConfigWithTheme as vitePressDefineConfig } from 'vitepress'
+import {DefaultTheme, defineConfigWithTheme as vitePressDefineConfig} from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
 import { build } from './build'
 import type { VitePressPWAOptions } from './types'
 
-export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<ThemeConfig> = {}): UserConfig<ThemeConfig> {
-  let viteConf = userOptions.vite
+export function defineConfig(config: VitePressPWAOptions<UserConfig<DefaultTheme.Config>>) {
+  let viteConf = config.vite
   if (!viteConf) {
     viteConf = {}
-    userOptions.vite = viteConf
+    config.vite = viteConf
   }
 
   let vitePlugins = viteConf.plugins
@@ -23,7 +23,7 @@ export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<Theme
       throw new Error('Remove the vite-plugin-pwa plugin from Vite Plugins entry in VitePress config file')
   }
 
-  const { pwa = {}, ...vitePressOptions } = userOptions
+  const { pwa = {}, ...vitePressOptions } = config
 
   const {
     buildEnd: userBuildEnd,

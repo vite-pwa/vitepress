@@ -5,7 +5,6 @@ export interface PwaOptions extends Partial<VitePWAOptions>, Pick<UserConfig, 'b
   defaultMode?: string
 }
 
-// TODO: exclude also VitePress transformHtml hook?
-export interface VitePressPWAOptions<ThemeConfig> extends Exclude<UserConfig<ThemeConfig>, 'buildEnd'> {
+export interface VitePressPWAOptions<ThemeConfig = any> extends Exclude<UserConfig<ThemeConfig>, 'buildEnd'> {
   pwa?: PwaOptions
 }
