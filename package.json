@@ -61,5 +61,12 @@
     "vite-plugin-pwa": "file:vite-plugin-pwa-0.12.7.tgz",
     "vitepress": "^1.0.0-alpha.13",
     "workbox-window": "^6.5.4"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   }
 }
