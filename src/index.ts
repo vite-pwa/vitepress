@@ -5,9 +5,20 @@ import { build } from './build'
 import type { VitePressPWAOptions } from './types'
 
 export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<ThemeConfig> = {}): UserConfig<ThemeConfig> {
-  const plugins = userOptions.vite?.plugins ?? []
-  if (plugins && plugins.length > 0) {
-    const pwaPlugin = plugins.find(i => i && typeof i === 'object' && 'name' in i && i.name === 'vite-plugin-pwa')
+  let viteConf = userOptions.vite
+  if (!viteConf) {
+    viteConf = {}
+    userOptions.vite = viteConf
+  }
+
+  let vitePlugins = viteConf.plugins
+  if (typeof vitePlugins === 'undefined') {
+    vitePlugins = []
+    viteConf.plugins = vitePlugins
+  }
+
+  if (vitePlugins && vitePlugins.length > 0) {
+    const pwaPlugin = vitePlugins.find(i => i && typeof i === 'object' && 'name' in i && i.name === 'vite-plugin-pwa')
     if (pwaPlugin)
       throw new Error('Remove the vite-plugin-pwa plugin from Vite Plugins entry in VitePress config file')
   }
@@ -20,7 +31,7 @@ export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<Theme
     ...pwaPluginOptions
   } = pwa
 
-  plugins.push(VitePWA({ ...pwaPluginOptions }))
+  vitePlugins.push(VitePWA({ ...pwaPluginOptions }))
 
   userOptions.buildEnd = async (config) => {
     await userBuildEnd?.(config)
