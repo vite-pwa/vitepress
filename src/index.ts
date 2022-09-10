@@ -1,4 +1,4 @@
-import {DefaultTheme, defineConfigWithTheme as vitePressDefineConfig} from 'vitepress'
+import { DefaultTheme, defineConfigWithTheme } from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
 import { build } from './build'
 import type { VitePressPWAOptions } from './types'
@@ -40,9 +40,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
     await build(defaultMode, pwaPluginOptions)
   }
 
-  return vitePressDefineConfig({
-    ...vitePressOptions,
-  })
+  return defineConfigWithTheme(vitePressOptions)
 }
 
 export * from './types'
