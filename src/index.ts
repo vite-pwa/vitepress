@@ -1,10 +1,9 @@
-import type { UserConfig } from 'vitepress'
 import {DefaultTheme, defineConfigWithTheme as vitePressDefineConfig} from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
 import { build } from './build'
 import type { VitePressPWAOptions } from './types'
 
-export function defineConfig(config: VitePressPWAOptions<UserConfig<DefaultTheme.Config>>) {
+export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   let viteConf = config.vite
   if (!viteConf) {
     viteConf = {}
