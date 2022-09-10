@@ -31,9 +31,12 @@ export function defineConfig<ThemeConfig>(userOptions: VitePressPWAOptions<Theme
     ...pwaPluginOptions
   } = pwa
 
+  if (!pwaPluginOptions.outDir)
+    pwaPluginOptions.outDir = '.vitepress/dist'
+
   vitePlugins.push(VitePWA({ ...pwaPluginOptions }))
 
-  userOptions.buildEnd = async (config) => {
+  vitePressOptions.buildEnd = async (config) => {
     await userBuildEnd?.(config)
     await build(defaultMode, pwaPluginOptions)
   }
