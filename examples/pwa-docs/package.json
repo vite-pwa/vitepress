@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-pwa-docs",
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
   "private": "true",
   "scripts": {
     "dev": "vitepress dev",
@@ -12,9 +12,9 @@
     "vue": "^3.2.38"
   },
   "devDependencies": {
+    "@vite-pwa/vitepress": "workspace:*",
     "@vitejs/plugin-vue": "^3.1.0",
     "typescript": "^4.8.2",
-    "@vite-pwa/vitepress": "workspace:*",
     "vitepress": "^1.0.0-alpha.13",
     "workbox-window": "^6.5.4"
   }
