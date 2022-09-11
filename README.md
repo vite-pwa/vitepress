@@ -55,19 +55,28 @@ pnpm add @vite-pwa/vitepress -D
 
 ## 🦄 Usage
 
-Add `SvelteKitPWA` plugin to `vite.config.js / vite.config.ts` and configure it:
+You will need add or switch `defineConfig` from `VitePress`:
 
 ```ts
-// vite.config.js / vite.config.ts
-import { sveltekit } from '@sveltejs/kit/vite'
-import { SvelteKitPWA } from '@vite-pwa/sveltekit'
+// .vitepress/config.ts
+import { defineConfig } from '@vite-pwa/vitepress'
+// export default { <== comment this line
+export default defineConfig({    
+  /* your VitePress options */  
+//} <== comment this line
+}) // <== add this line
+```
 
-export default {
-  plugins: [
-    sveltekit(),
-    SvelteKitPWA()
-  ]
-}
+or just change the import:
+
+```ts
+// .vitepress/config.ts
+// import { defineConfig } from 'vitepress'  <== comment this line or switch the import
+import { defineConfig } from '@vite-pwa/vitepress' // <== add this line
+
+export default defineConfig({
+  /* your VitePress options */
+})
 ```
 
 Read the [📖 documentation](https://vite-plugin-pwa.netlify.app/guide/) for a complete guide on how to configure and use
