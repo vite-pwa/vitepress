@@ -19,6 +19,16 @@ export default defineConfig({
         ['link', { rel: 'manifest', href: '/manifest.webmanifest', sizes: '192x192' }],
         ['script', { src: '/registerSW.js' }],
     ],
+    themeConfig: {
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2022-PRESENT Anthony Fu',
+        },
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'About', link: '/about', activeMatch: '/about.html' },
+        ],
+    },
     pwa: {
         mode: 'development',
         base: '/',
