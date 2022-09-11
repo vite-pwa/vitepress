@@ -26,15 +26,5 @@ git checkout -b my-new-branch
 
 ## Testing changes
 
-The `vite-plugin-pwa` repo includes a set of examples where you can test the changes (you can find them on examples folder), you should check your changes against each framework using the `cli` for running examples:
-- `pnpm run examples`: select `vue` framework and default options on the cli (you can also test another options)
-- `pnpm run examples`: select `react` framework and default options on the cli (you can also test another options)
-- `pnpm run examples`: select `preact` framework and default options on the cli (you can also test another options)
-- `pnpm run examples`: select `svelte` framework and default options on the cli (you can also test another options)
-- `pnpm run examples`: select `sveltekit` framework and default options on the cli (you can also test another options)
-- `pnpm run examples`: select `solid` framework and default options on the cli (you can also test another options)
-
-> The default options from the `cli` are just to check your changes are not breaking major ui/app frameworks build: `generateSW` strategy, `Prompt for update` behavior and `Enable periodic SW updates` to `no`. 
-
-> If your changes are specific to some behavior, just use the corresponding option on the `cli`.
+From the terminal, change to one of the examples folder and run `pnpm run preview`.
 
