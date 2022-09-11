@@ -1,4 +1,4 @@
-import { type DefaultTheme, defineConfigWithTheme } from 'vitepress/types'
+import { type DefaultTheme, defineConfigWithTheme } from 'vitepress'
 import { type VitePluginPWAAPI, VitePWA } from 'vite-plugin-pwa'
 import type { VitePressPWAOptions } from './types'
 import { configurePWAOptions } from './config'
@@ -25,8 +25,8 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   const { pwa = {}, ...vitePressOptions } = config
 
   const {
-    transformHead: userTransformHead,
-    buildEnd: userBuildEnd,
+    // transformHead: userTransformHead,
+    // buildEnd: userBuildEnd,
     defaultMode = 'production',
     ...pwaPluginOptions
   } = pwa
@@ -40,7 +40,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
       {
         name: 'vite-pwa-plugin:vitepress',
         apply: 'build',
-        enforce:'post',
+        enforce: 'post',
         configResolved(viteConfig) {
           if (!viteConfig.build.ssr)
             api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
@@ -49,6 +49,9 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   )
 
   const vitePressConfig = defineConfigWithTheme(vitePressOptions)
+
+  const userTransformHead = vitePressConfig.transformHead
+  const userBuildEnd = vitePressConfig.buildEnd
 
   vitePressConfig.transformHead = async (ctx) => {
     await userTransformHead?.(ctx)
