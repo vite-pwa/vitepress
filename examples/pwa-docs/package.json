@@ -1,6 +1,7 @@
 {
   "name": "vite-plugin-pwa-docs",
   "version": "0.0.0",
+  "type": "module",
   "private": "true",
   "scripts": {
     "dev": "vitepress dev",
