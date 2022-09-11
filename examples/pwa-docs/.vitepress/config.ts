@@ -19,7 +19,7 @@ export default defineConfig({
       content: 'PWA, VitePress, workbox, Vite, vite-plugin',
     }],
     ['link', { rel: 'apple-touch-icon', href: '/pwa-192x192.png', sizes: '192x192' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest', sizes: '192x192' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['script', { src: '/registerSW.js' }],
   ],
   themeConfig: {
