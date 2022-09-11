@@ -1,6 +1,8 @@
-import { DefaultTheme, defineConfigWithTheme } from 'vitepress'
+import type { DefaultTheme } from 'vitepress'
+import { defineConfigWithTheme } from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
 import type { VitePressPWAOptions } from './types'
+import { configurePWAOptions } from './config'
 
 export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   let viteConf = config.vite
@@ -29,8 +31,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
     ...pwaPluginOptions
   } = pwa
 
-  if (!pwaPluginOptions.outDir)
-    pwaPluginOptions.outDir = '.vitepress/dist'
+  configurePWAOptions(pwaPluginOptions)
 
   vitePlugins.push(VitePWA({ ...pwaPluginOptions }))
 
