@@ -1,6 +1,5 @@
 import { resolveConfig } from 'vite'
-import { VitePWA } from 'vite-plugin-pwa'
-import type { VitePWAOptions, VitePluginPWAAPI } from 'vite-plugin-pwa'
+import { type VitePWAOptions, type VitePluginPWAAPI, VitePWA } from 'vite-plugin-pwa'
 
 export async function build(defaultMode: string, pwaPluginOptions: Partial<VitePWAOptions>) {
   const viteConfig = await resolveConfig(

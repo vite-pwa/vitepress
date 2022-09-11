@@ -1,6 +1,5 @@
-import type { DefaultTheme } from 'vitepress'
-import { defineConfigWithTheme } from 'vitepress'
-import { VitePluginPWAAPI, VitePWA } from 'vite-plugin-pwa'
+import { type DefaultTheme, defineConfigWithTheme } from 'vitepress/types'
+import { type VitePluginPWAAPI, VitePWA } from 'vite-plugin-pwa'
 import type { VitePressPWAOptions } from './types'
 import { configurePWAOptions } from './config'
 

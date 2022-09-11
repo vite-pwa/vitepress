@@ -1,4 +1,4 @@
-import type { UserConfig } from 'vitepress'
+import type { UserConfig } from 'vitepress/types'
 import type { VitePWAOptions } from 'vite-plugin-pwa'
 
 export interface PwaOptions extends Partial<VitePWAOptions>, Pick<UserConfig, 'buildEnd' | 'transformHead'> {
