@@ -55,17 +55,17 @@ pnpm add @vite-pwa/vitepress -D
 
 ## 🦄 Usage
 
-You will need add or switch `defineConfig` from `VitePress`:
+You will need add or switch `defineConfig` from `VitePress` to `Vite Plugin PWA Integration for Vitepress`:
 
 ```ts
 // .vitepress/config.ts
 import { defineConfig } from '@vite-pwa/vitepress'
 
-// export default { <== comment this line
 export default defineConfig({    
-  /* your VitePress options */  
-//} <== comment this line
-}) // <== add this line
+  /* your VitePress options */
+  /* Vite PWA Options */
+  pwa: {}  
+})
 ```
 
 or just change the import:
@@ -77,6 +77,8 @@ import { defineConfig } from '@vite-pwa/vitepress' // <== add this line
 
 export default defineConfig({
   /* your VitePress options */
+  /* Vite PWA Options */
+  pwa: {}
 })
 ```
 
