@@ -1,7 +1,4 @@
 import type { VitePWAOptions } from 'vite-plugin-pwa'
-// import type { BasePartial, GlobPartial, RequiredGlobDirectoryPartial } from 'workbox-build'
-//
-// type WorkboxConfig  = Partial<BasePartial & GlobPartial & RequiredGlobDirectoryPartial>
 
 export function configurePWAOptions(options: Partial<VitePWAOptions>) {
   if (!options.outDir)
@@ -20,6 +17,10 @@ export function configurePWAOptions(options: Partial<VitePWAOptions>) {
   else {
     options.workbox = options.workbox ?? {}
     config = options.workbox
+    if (options.registerType === 'autoUpdate' && (options.injectRegister === 'script' || options.injectRegister === 'inline')) {
+      options.workbox.clientsClaim = true
+      options.workbox.skipWaiting = true
+    }
   }
 
   // exclude registerSW.js script from the SW precache manifest

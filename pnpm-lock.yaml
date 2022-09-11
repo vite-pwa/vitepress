@@ -10,11 +10,11 @@ importers:
       '@types/workbox-build': ^5.0.1
       '@typescript-eslint/eslint-plugin': ^5.36.2
       eslint: ^8.23.0
-      typescript: ^4.8.2
+      typescript: ^4.8.3
       unbuild: ^0.8.10
       vite: ^3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz
-      vitepress: ^1.0.0-alpha.13
+      vitepress: file:vitepress-1.0.0-alpha.13.tgz
       workbox-window: ^6.5.4
     devDependencies:
       '@antfu/eslint-config': 0.26.3_itqs5654cmlnjraw6gjzqacppi
@@ -27,25 +27,42 @@ importers:
       unbuild: 0.8.10
       vite: 3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4
-      vitepress: 1.0.0-alpha.13
+      vitepress: file:vitepress-1.0.0-alpha.13.tgz
       workbox-window: 6.5.4
 
   examples/pwa-docs:
     specifiers:
       '@vite-pwa/vitepress': workspace:*
       '@vitejs/plugin-vue': ^3.1.0
-      typescript: ^4.8.2
-      vitepress: ^1.0.0-alpha.13
+      typescript: ^4.8.3
       vue: ^3.2.38
-      workbox-window: ^6.5.4
     dependencies:
       vue: 3.2.39
     devDependencies:
       '@vite-pwa/vitepress': link:../..
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
       typescript: 4.8.3
-      vitepress: 1.0.0-alpha.13
-      workbox-window: 6.5.4
+
+  examples/pwa-prompt:
+    specifiers:
+      '@vite-pwa/vitepress': workspace:*
+      '@vitejs/plugin-vue': ^3.1.0
+      typescript: ^4.8.3
+      vue: ^3.2.38
+    dependencies:
+      vue: 3.2.39
+    devDependencies:
+      '@vite-pwa/vitepress': link:../..
+      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
+      typescript: 4.8.3
+
+  examples/pwa-simple:
+    specifiers:
+      '@vite-pwa/vitepress': workspace:*
+      typescript: ^4.8.3
+    devDependencies:
+      '@vite-pwa/vitepress': link:../..
+      typescript: 4.8.3
 
 packages:
 
@@ -4182,6 +4199,10 @@ packages:
       validate-npm-package-license: 3.0.4
     dev: true
 
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: true
+
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
     dependencies:
@@ -4433,7 +4454,7 @@ packages:
   /randombytes/2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
-      safe-buffer: 5.2.1
+      safe-buffer: 5.1.2
     dev: true
 
   /react-is/16.13.1:
@@ -4630,10 +4651,6 @@ packages:
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
-    dev: true
-
-  /safe-buffer/5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: true
 
   /safe-regex/2.1.1:
@@ -5105,31 +5122,6 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.13:
-    resolution: {integrity: sha512-gCbKb+6o0g5wHt2yyqBPk7FcvrB+MfwGtg1JMS5p99GTQR87l3b7symCl8o1ecv7MDXwJ2mPB8ZrYNLnQAJxLQ==}
-    hasBin: true
-    dependencies:
-      '@docsearch/css': 3.2.1
-      '@docsearch/js': 3.2.1
-      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
-      '@vue/devtools-api': 6.2.1
-      '@vueuse/core': 9.2.0_vue@3.2.39
-      body-scroll-lock: 4.0.0-beta.0
-      shiki: 0.11.1
-      vite: 3.1.0
-      vue: 3.2.39
-    transitivePeerDependencies:
-      - '@algolia/client-search'
-      - '@types/react'
-      - '@vue/composition-api'
-      - less
-      - react
-      - react-dom
-      - sass
-      - stylus
-      - terser
-    dev: true
-
   /vscode-oniguruma/1.6.2:
     resolution: {integrity: sha512-KH8+KKov5eS/9WhofZR8M8dMHWN2gTxjMsG4jd04YhpbPR91fUj7rYQ2/XjeHCJWbg7X++ApRIU9NUwM2vTvLA==}
     dev: true
@@ -5394,7 +5386,7 @@ packages:
     dev: true
 
   file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4:
-    resolution: {integrity: sha512-8IPJFTv0VthKqAS/whD71eXLgunEp/jdsHWLjhtEySKcR+nABKEmP+ul9tZEdnmIFlwKTHJuNW8vJkT+X5gQYw==, tarball: file:vite-plugin-pwa-0.12.7.tgz}
+    resolution: {integrity: sha512-q+VilmHGiZU/kL2niBmIverzvLVh8CA6v6sjB81N60Rjbrl4oVYnojNmaArSKG7/F3z8gEN240Kys6mbLOxXRQ==, tarball: file:vite-plugin-pwa-0.12.7.tgz}
     id: file:vite-plugin-pwa-0.12.7.tgz
     name: vite-plugin-pwa
     version: 0.12.7
@@ -5412,4 +5404,32 @@ packages:
       workbox-window: 6.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  file:vitepress-1.0.0-alpha.13.tgz:
+    resolution: {integrity: sha512-QutkycX0HVFCz63GS/3oIhRxyN96cNwoWoueGTfaEmR2z3LctcqLqikJai2FsCIzlaPpAs37H70iI2hk6WWf5g==, tarball: file:vitepress-1.0.0-alpha.13.tgz}
+    name: vitepress
+    version: 1.0.0-alpha.13
+    hasBin: true
+    dependencies:
+      '@docsearch/css': 3.2.1
+      '@docsearch/js': 3.2.1
+      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
+      '@vue/devtools-api': 6.2.1
+      '@vueuse/core': 9.2.0_vue@3.2.39
+      body-scroll-lock: 4.0.0-beta.0
+      nprogress: 0.2.0
+      shiki: 0.11.1
+      vite: 3.1.0
+      vue: 3.2.39
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - terser
     dev: true

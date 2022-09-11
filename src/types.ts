@@ -5,6 +5,6 @@ export interface PwaOptions extends Partial<VitePWAOptions>, Pick<UserConfig, 'b
   defaultMode?: string
 }
 
-export interface VitePressPWAOptions<ThemeConfig = any> extends Exclude<UserConfig<ThemeConfig>, 'buildEnd'> {
+export interface VitePressPWAOptions<ThemeConfig = any> extends Omit<UserConfig<ThemeConfig>, 'buildEnd'> {
   pwa?: PwaOptions
 }

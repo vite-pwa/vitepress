@@ -1,6 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 import { defineConfigWithTheme } from 'vitepress'
-import { VitePWA } from 'vite-plugin-pwa'
+import {VitePluginPWAAPI, VitePWA} from 'vite-plugin-pwa'
 import type { VitePressPWAOptions } from './types'
 import { configurePWAOptions } from './config'
 
@@ -20,7 +20,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   if (vitePlugins && vitePlugins.length > 0) {
     const pwaPlugin = vitePlugins.find(i => i && typeof i === 'object' && 'name' in i && i.name === 'vite-plugin-pwa')
     if (pwaPlugin)
-      throw new Error('Remove the vite-plugin-pwa plugin from Vite Plugins entry in VitePress config file')
+      throw new Error('Remove vite-plugin-pwa plugin from Vite Plugins entry in VitePress config file')
   }
 
   const { pwa = {}, ...vitePressOptions } = config
@@ -33,15 +33,55 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
 
   configurePWAOptions(pwaPluginOptions)
 
-  vitePlugins.push(VitePWA({ ...pwaPluginOptions }))
+  let api: VitePluginPWAAPI | undefined
 
-  vitePressOptions.buildEnd = async (config) => {
+  vitePlugins.push(
+      VitePWA({ ...pwaPluginOptions }),
+      {
+        name: 'vite-pwa-plugin:vitepress',
+        apply: 'build',
+        enforce:'post',
+        configResolved(viteConfig) {
+          if (!viteConfig.build.ssr)
+            api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
+        },
+      },
+  )
+
+  vitePressOptions.transformHead = ({ head }) => {
+    const href = api?.webManifestUrl
+    href && head.push(['link', { rel: 'manifest', href }])
+
+    const registerSWData = api?.registerSWData()
+    if (registerSWData) {
+      if (registerSWData.inline) {
+        head.push([
+          'script',
+          { id: 'vite-plugin-pwa-inline-sw' },
+          `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${ registerSWData.scope }' })})}`,
+        ])
+      }
+      else {
+        head.push([
+          'script',
+          {
+            id: 'vite-plugin-pwa-register-sw',
+            src: registerSWData.registerPath,
+          },
+        ])
+      }
+    }
+  }
+
+  const vitePressConfig = defineConfigWithTheme(vitePressOptions)
+
+  vitePressConfig.buildEnd = async (siteConfig) => {
     const { build } = await import('./build')
-    await userBuildEnd?.(config)
+    await userBuildEnd?.(siteConfig)
     await build(defaultMode, pwaPluginOptions)
   }
 
-  return defineConfigWithTheme(vitePressOptions)
+  return vitePressConfig
 }
 
 export * from './types'

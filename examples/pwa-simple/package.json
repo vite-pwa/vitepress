@@ -1,0 +1,15 @@
+{
+  "name": "pwa-simple",
+  "type": "module",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "npm run build && vitepress serve"
+  },
+  "devDependencies": {
+    "@vite-pwa/vitepress": "workspace:*",
+    "typescript": "^4.8.3"
+  }
+}
