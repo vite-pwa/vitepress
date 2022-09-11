@@ -15,7 +15,6 @@ importers:
       vite: ^3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz
       vitepress: file:vitepress-1.0.0-alpha.13.tgz
-      workbox-window: ^6.5.4
     devDependencies:
       '@antfu/eslint-config': 0.26.3_itqs5654cmlnjraw6gjzqacppi
       '@antfu/ni': 0.18.0
@@ -28,20 +27,6 @@ importers:
       vite: 3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4
       vitepress: file:vitepress-1.0.0-alpha.13.tgz
-      workbox-window: 6.5.4
-
-  examples/pwa-docs:
-    specifiers:
-      '@vite-pwa/vitepress': workspace:*
-      '@vitejs/plugin-vue': ^3.1.0
-      typescript: ^4.8.3
-      vue: ^3.2.38
-    dependencies:
-      vue: 3.2.39
-    devDependencies:
-      '@vite-pwa/vitepress': link:../..
-      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
-      typescript: 4.8.3
 
   examples/pwa-prompt:
     specifiers:
@@ -49,12 +34,14 @@ importers:
       '@vitejs/plugin-vue': ^3.1.0
       typescript: ^4.8.3
       vue: ^3.2.38
+      workbox-window: ^6.5.4
     dependencies:
       vue: 3.2.39
     devDependencies:
       '@vite-pwa/vitepress': link:../..
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
       typescript: 4.8.3
+      workbox-window: 6.5.4
 
   examples/pwa-simple:
     specifiers:

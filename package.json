@@ -57,8 +57,7 @@
     "unbuild": "^0.8.10",
     "vite": "^3.1.0",
     "vite-plugin-pwa": "file:vite-plugin-pwa-0.12.7.tgz",
-    "vitepress": "file:vitepress-1.0.0-alpha.13.tgz",
-    "workbox-window": "^6.5.4"
+    "vitepress": "file:vitepress-1.0.0-alpha.13.tgz"
   },
   "pnpm": {
     "peerDependencyRules": {
