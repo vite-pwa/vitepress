@@ -34,9 +34,6 @@
     "dist",
     "*.d.ts"
   ],
-  "engines": {
-    "node": ">=16.14"
-  },
   "scripts": {
     "build": "unbuild",
     "lint": "eslint .",
