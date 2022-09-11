@@ -60,6 +60,7 @@ You will need add or switch `defineConfig` from `VitePress`:
 ```ts
 // .vitepress/config.ts
 import { defineConfig } from '@vite-pwa/vitepress'
+
 // export default { <== comment this line
 export default defineConfig({    
   /* your VitePress options */  
