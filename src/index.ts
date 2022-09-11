@@ -1,6 +1,5 @@
 import { DefaultTheme, defineConfigWithTheme } from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
-import { build } from './build'
 import type { VitePressPWAOptions } from './types'
 
 export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
@@ -36,6 +35,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   vitePlugins.push(VitePWA({ ...pwaPluginOptions }))
 
   vitePressOptions.buildEnd = async (config) => {
+    const { build } = await import('./build')
     await userBuildEnd?.(config)
     await build(defaultMode, pwaPluginOptions)
   }
