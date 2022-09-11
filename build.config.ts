@@ -9,7 +9,6 @@ export default defineBuildConfig({
   externals: [
     'vite',
     'rollup',
-    'vitepress',
     'workbox-build',
   ],
   rollup: {
