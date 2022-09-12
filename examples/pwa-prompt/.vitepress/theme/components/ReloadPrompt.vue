@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { inject, onBeforeMount, ref } from 'vue'
+
+const teleportTo = inject<string>('pwa-prompt-target', 'body')
 
 const offlineReady = ref(false)
 const needRefresh = ref(false)
@@ -34,9 +36,8 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <Teleport to="body">
+  <template v-if="offlineReady || needRefresh">
     <div
-        v-if="offlineReady || needRefresh"
         class="pwa-toast"
         role="alertdialog"
         aria-labelledby="pwa-message"
@@ -60,7 +61,7 @@ onBeforeMount(async () => {
         Close
       </button>
     </div>
-  </Teleport>
+  </template>
 </template>
 <style>
 .pwa-toast {
