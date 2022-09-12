@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { inject, onBeforeMount, ref } from 'vue'
-
-const teleportTo = inject<string>('pwa-prompt-target', 'body')
+import { onBeforeMount, ref } from 'vue'
 
 const offlineReady = ref(false)
 const needRefresh = ref(false)
