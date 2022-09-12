@@ -14,11 +14,9 @@
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client",
-      "vitepress"
-    ],
-    "paths": {
-      "~/*": ["src/*"]
-    }
+      "vitepress",
+      "vite-plugin-pwa/client"
+    ]
   },
   "include": [
     "./*.d.ts",

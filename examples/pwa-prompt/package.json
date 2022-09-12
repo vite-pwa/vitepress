@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "npm run build && vitepress serve"
+    "preview": "npm run build && vitepress serve",
+    "https": "npm run build && serve .vitepress/dist"
   },
   "dependencies": {
     "vue": "^3.2.38"
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@vite-pwa/vitepress": "workspace:*",
     "@vitejs/plugin-vue": "^3.1.0",
+    "https-localhost": "^4.7.1",
     "typescript": "^4.8.3",
     "workbox-window": "^6.5.4"
   }

@@ -34,8 +34,6 @@ export default defineConfig({
     mode: 'development',
     base: '/',
     scope: '/',
-    registerType: 'autoUpdate',
-    injectRegister: 'inline',
     includeAssets: ['favicon.svg'],
     manifest: {
       name: 'VitePress PWA',

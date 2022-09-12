@@ -25,8 +25,6 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   const { pwa = {}, ...vitePressOptions } = config
 
   const {
-    // transformHead: userTransformHead,
-    // buildEnd: userBuildEnd,
     defaultMode = 'production',
     ...pwaPluginOptions
   } = pwa
@@ -38,7 +36,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   vitePlugins.push(
       VitePWA({ ...pwaPluginOptions }),
       {
-        name: 'vite-pwa-plugin:vitepress',
+        name: 'vite-plugin-pwa:vitepress',
         apply: 'build',
         enforce: 'post',
         configResolved(viteConfig) {
@@ -54,8 +52,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   const userBuildEnd = vitePressConfig.buildEnd
 
   vitePressConfig.transformHead = async (ctx) => {
-    await userTransformHead?.(ctx)
-    const { head } = ctx
+    const head = (await userTransformHead?.(ctx)) ?? []
     const href = api?.webManifestUrl
     href && head.push(['link', { rel: 'manifest', href }])
 
@@ -78,6 +75,8 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
         ])
       }
     }
+
+    return head
   }
 
   vitePressConfig.buildEnd = async (siteConfig) => {
