@@ -15,13 +15,9 @@
     "types": [
       "vite/client",
       "vitepress"
-    ],
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    ]
   },
   "include": [
-    "./*.d.ts",
     "./*.ts",
     "./.vitepress/**/*.ts",
     "./.vitepress/**/*.vue"

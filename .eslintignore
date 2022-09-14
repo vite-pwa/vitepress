@@ -2,6 +2,5 @@ build/
 dist/
 dev-dist/
 node_modules/
-*.svelte
 *.d.ts
 !.vitepress/dist/

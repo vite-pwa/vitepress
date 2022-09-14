@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "npm run build && vitepress serve",
-    "https": "npm run build && serve .vitepress/dist"
+    "preview": "nr build && vitepress serve",
+    "https": "nr build && serve .vitepress/dist"
   },
   "devDependencies": {
     "@vite-pwa/vitepress": "workspace:*",

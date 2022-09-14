@@ -1,5 +1,5 @@
 ---
-title: About | VitePress PWA
+title: About
 ---
 <script setup>
 const date = __DATE__
