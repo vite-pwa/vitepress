@@ -42,10 +42,6 @@
     "prepublishOnly": "npm run build",
     "release": "npx bumpp --push --tag --commit && npm publish"
   },
-  "peerDependencies": {
-    "vite-plugin-pwa": "^0.12.7",
-    "vitepress": "1.0.0-alpha.14"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
     "@antfu/ni": "^0.18.0",

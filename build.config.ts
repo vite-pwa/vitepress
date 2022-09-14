@@ -8,7 +8,8 @@ export default defineBuildConfig({
   declaration: true,
   externals: [
     'vite',
-    'rollup',
+    'vitepress',
+    'vite-plugin-pwa',
     'workbox-build',
   ],
   rollup: {
