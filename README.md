@@ -61,10 +61,10 @@ You will need add or switch `defineConfig` from `VitePress` to `Vite Plugin PWA 
 // .vitepress/config.ts
 import { defineConfig } from '@vite-pwa/vitepress'
 
-export default defineConfig({    
+export default defineConfig({
   /* your VitePress options */
   /* Vite PWA Options */
-  pwa: {}  
+  pwa: {}
 })
 ```
 

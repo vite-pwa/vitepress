@@ -24,6 +24,7 @@ onBeforeMount(async () => {
     onOfflineReady,
     onNeedRefresh,
     onRegistered() {
+      // eslint-disable-next-line no-console
       console.info('Service Worker registered')
     },
     onRegisterError(e) {
@@ -36,31 +37,32 @@ onBeforeMount(async () => {
 <template>
   <template v-if="offlineReady || needRefresh">
     <div
-        class="pwa-toast"
-        role="alertdialog"
-        aria-labelledby="pwa-message"
+      class="pwa-toast"
+      role="alertdialog"
+      aria-labelledby="pwa-message"
     >
       <div id="pwa-message" class="mb-3">
         {{ offlineReady ? 'App ready to work offline' : 'New content available, click the reload button to update.' }}
       </div>
       <button
-          v-if="needRefresh"
-          type="button"
-          class="pwa-refresh"
-          @click="updateServiceWorker?.()"
+        v-if="needRefresh"
+        type="button"
+        class="pwa-refresh"
+        @click="updateServiceWorker?.()"
       >
         Reload
       </button>
       <button
-          type="button"
-          class="pwa-cancel"
-          @click="close"
+        type="button"
+        class="pwa-cancel"
+        @click="close"
       >
         Close
       </button>
     </div>
   </template>
 </template>
+
 <style>
 .pwa-toast {
   position: fixed;

@@ -1,5 +1,5 @@
 import { type DefaultTheme, defineConfigWithTheme } from 'vitepress'
-import { type VitePluginPWAAPI, VitePWA } from 'vite-plugin-pwa'
+import { VitePWA, type VitePluginPWAAPI } from 'vite-plugin-pwa'
 import type { VitePressPWAOptions } from './types'
 import { configurePWAOptions } from './config'
 
@@ -34,16 +34,16 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   let api: VitePluginPWAAPI | undefined
 
   vitePlugins.push(
-      VitePWA({ ...pwaPluginOptions }),
-      {
-        name: 'vite-plugin-pwa:vitepress',
-        apply: 'build',
-        enforce: 'post',
-        configResolved(viteConfig) {
-          if (!viteConfig.build.ssr)
-            api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
-        },
+    VitePWA({ ...pwaPluginOptions }),
+    {
+      name: 'vite-plugin-pwa:vitepress',
+      apply: 'build',
+      enforce: 'post',
+      configResolved(viteConfig) {
+        if (!viteConfig.build.ssr)
+          api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
       },
+    },
   )
 
   const vitePressConfig = defineConfigWithTheme(vitePressOptions)
@@ -62,7 +62,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
         head.push([
           'script',
           { id: 'vite-plugin-pwa-inline-sw' },
-          `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${ registerSWData.scope }' })})}`,
+          `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${registerSWData.scope}' })})}`,
         ])
       }
       else {
@@ -80,9 +80,8 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
   }
 
   vitePressConfig.buildEnd = async (siteConfig) => {
-    const { build } = await import('./build')
     await userBuildEnd?.(siteConfig)
-    await build(defaultMode, pwaPluginOptions)
+    api && !api.disabled && await api.generateSW()
   }
 
   return vitePressConfig

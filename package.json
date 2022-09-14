@@ -44,7 +44,7 @@
   },
   "peerDependencies": {
     "vite-plugin-pwa": "^0.12.7",
-    "vitepress": "^1.0.0-alpha.13"
+    "vitepress": "1.0.0-alpha.14"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
@@ -58,7 +58,7 @@
     "unbuild": "^0.8.10",
     "vite": "^3.1.0",
     "vite-plugin-pwa": "file:vite-plugin-pwa-0.12.7.tgz",
-    "vitepress": "file:vitepress-1.0.0-alpha.13.tgz"
+    "vitepress": "1.0.0-alpha.14"
   },
   "pnpm": {
     "peerDependencyRules": {

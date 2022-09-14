@@ -15,7 +15,7 @@ importers:
       unbuild: ^0.8.10
       vite: ^3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz
-      vitepress: file:vitepress-1.0.0-alpha.13.tgz
+      vitepress: 1.0.0-alpha.14
     devDependencies:
       '@antfu/eslint-config': 0.26.3_itqs5654cmlnjraw6gjzqacppi
       '@antfu/ni': 0.18.0
@@ -28,7 +28,7 @@ importers:
       unbuild: 0.8.10
       vite: 3.1.0
       vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4
-      vitepress: file:vitepress-1.0.0-alpha.13.tgz
+      vitepress: 1.0.0-alpha.14
 
   examples/pwa-prompt:
     specifiers:
@@ -5617,6 +5617,32 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /vitepress/1.0.0-alpha.14:
+    resolution: {integrity: sha512-GVwDeZPc/+5vgxOh0NfbKlk/QT4e20hRUdLdG+hEP8myJmM0IC4uIL7xK2G/wn6ucei9hLb0YQh677oDhCxF6g==}
+    hasBin: true
+    dependencies:
+      '@docsearch/css': 3.2.1
+      '@docsearch/js': 3.2.1
+      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
+      '@vue/devtools-api': 6.2.1
+      '@vueuse/core': 9.2.0_vue@3.2.39
+      body-scroll-lock: 4.0.0-beta.0
+      nprogress: 0.2.0
+      shiki: 0.11.1
+      vite: 3.1.0
+      vue: 3.2.39
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - terser
+    dev: true
+
   /vscode-oniguruma/1.6.2:
     resolution: {integrity: sha512-KH8+KKov5eS/9WhofZR8M8dMHWN2gTxjMsG4jd04YhpbPR91fUj7rYQ2/XjeHCJWbg7X++ApRIU9NUwM2vTvLA==}
     dev: true
@@ -5905,32 +5931,4 @@ packages:
       workbox-window: 6.5.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  file:vitepress-1.0.0-alpha.13.tgz:
-    resolution: {integrity: sha512-Q5YbOAtyO7nD//VzQkbD/+GayaZwuJ00Cn6qWtPfEBX1cCWtz58Bjj4sHFw1xmJuZahCDmGwe88WmVyXIbXGmw==, tarball: file:vitepress-1.0.0-alpha.13.tgz}
-    name: vitepress
-    version: 1.0.0-alpha.13
-    hasBin: true
-    dependencies:
-      '@docsearch/css': 3.2.1
-      '@docsearch/js': 3.2.1
-      '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
-      '@vue/devtools-api': 6.2.1
-      '@vueuse/core': 9.2.0_vue@3.2.39
-      body-scroll-lock: 4.0.0-beta.0
-      nprogress: 0.2.0
-      shiki: 0.11.1
-      vite: 3.1.0
-      vue: 3.2.39
-    transitivePeerDependencies:
-      - '@algolia/client-search'
-      - '@types/react'
-      - '@vue/composition-api'
-      - less
-      - react
-      - react-dom
-      - sass
-      - stylus
-      - terser
     dev: true
