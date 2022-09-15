@@ -53,8 +53,15 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
 
   vitePressConfig.transformHead = async (ctx) => {
     const head = (await userTransformHead?.(ctx)) ?? []
-    const href = api?.webManifestUrl
-    href && head.push(['link', { rel: 'manifest', href }])
+
+    const webManifestData = api?.webManifestData()
+    if (webManifestData) {
+      const href = webManifestData.href
+      if (webManifestData.useCredentials)
+        head.push(['link', { rel: 'manifest', href, crossorigin: 'use-credentials' }])
+      else
+        head.push(['link', { rel: 'manifest', href }])
+    }
 
     const registerSWData = api?.registerSWData()
     if (registerSWData) {
