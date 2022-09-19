@@ -55,31 +55,18 @@ pnpm add @vite-pwa/vitepress -D
 
 ## 🦄 Usage
 
-You will need add or switch `defineConfig` from `VitePress` to `Vite Plugin PWA Integration for Vitepress`:
+You will need wrap your VitePress config with `withPwa`:
 
 ```ts
 // .vitepress/config.ts
-import { defineConfig } from '@vite-pwa/vitepress'
+import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 
-export default defineConfig({
+export default withPwa(defineConfig({
   /* your VitePress options */
   /* Vite PWA Options */
   pwa: {}
-})
-```
-
-or just change the import:
-
-```ts
-// .vitepress/config.ts
-// import { defineConfig } from 'vitepress'  <== comment this line or switch the import
-import { defineConfig } from '@vite-pwa/vitepress' // <== add this line
-
-export default defineConfig({
-  /* your VitePress options */
-  /* Vite PWA Options */
-  pwa: {}
-})
+}))
 ```
 
 Read the [📖 documentation](https://vite-plugin-pwa.netlify.app/guide/) for a complete guide on how to configure and use

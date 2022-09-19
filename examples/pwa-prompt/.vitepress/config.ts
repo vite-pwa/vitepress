@@ -1,6 +1,7 @@
-import { defineConfig } from '@vite-pwa/vitepress'
+import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 
-export default defineConfig({
+export default withPwa(defineConfig({
   vite: {
     logLevel: 'info',
     define: {
@@ -62,4 +63,4 @@ export default defineConfig({
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
     },
   },
-})
+}))
