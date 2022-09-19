@@ -14,7 +14,7 @@ importers:
       typescript: ^4.8.3
       unbuild: ^0.8.10
       vite: ^3.1.0
-      vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz
+      vite-plugin-pwa: file:vite-plugin-pwa-0.12.8.tgz
       vitepress: 1.0.0-alpha.14
     devDependencies:
       '@antfu/eslint-config': 0.26.3_itqs5654cmlnjraw6gjzqacppi
@@ -27,7 +27,7 @@ importers:
       typescript: 4.8.3
       unbuild: 0.8.10
       vite: 3.1.0
-      vite-plugin-pwa: file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4
+      vite-plugin-pwa: file:vite-plugin-pwa-0.12.8.tgz_hmwovejfmhdkcygyi2ttcxz6n4
       vitepress: 1.0.0-alpha.14
 
   examples/pwa-prompt:
@@ -1399,7 +1399,7 @@ packages:
       babel-plugin-polyfill-corejs2: 0.3.3_@babel+core@7.19.0
       babel-plugin-polyfill-corejs3: 0.6.0_@babel+core@7.19.0
       babel-plugin-polyfill-regenerator: 0.4.1_@babel+core@7.19.0
-      core-js-compat: 3.25.1
+      core-js-compat: 3.25.2
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -2246,7 +2246,7 @@ packages:
     dependencies:
       '@babel/core': 7.19.0
       '@babel/helper-define-polyfill-provider': 0.3.3_@babel+core@7.19.0
-      core-js-compat: 3.25.1
+      core-js-compat: 3.25.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2325,6 +2325,17 @@ packages:
       update-browserslist-db: 1.0.7_browserslist@4.21.3
     dev: true
 
+  /browserslist/4.21.4:
+    resolution: {integrity: sha512-CBHJJdDmgjl3daYjN5Cp5kbTf1mUhZoS+beLklHIvkOWscs83YAhLlF3Wsh/lciQYAcbBJgTOD44VtG31ZM4Hw==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001406
+      electron-to-chromium: 1.4.254
+      node-releases: 2.0.6
+      update-browserslist-db: 1.0.9_browserslist@4.21.4
+    dev: true
+
   /buffer-from/1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: true
@@ -2364,6 +2375,10 @@ packages:
 
   /caniuse-lite/1.0.30001393:
     resolution: {integrity: sha512-N/od11RX+Gsk+1qY/jbPa0R6zJupEa0lxeBG598EbrtblxVCTJsQwbRBm6+V+rxpc5lHKdsXb9RY83cZIPLseA==}
+    dev: true
+
+  /caniuse-lite/1.0.30001406:
+    resolution: {integrity: sha512-bWTlaXUy/rq0BBtYShc/jArYfBPjEV95euvZ8JVtO43oQExEN/WquoqpufFjNu4kSpi5cy5kMbNvzztWDfv1Jg==}
     dev: true
 
   /chalk/2.4.2:
@@ -2502,10 +2517,10 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /core-js-compat/3.25.1:
-    resolution: {integrity: sha512-pOHS7O0i8Qt4zlPW/eIFjwp+NrTPx+wTL0ctgI2fHn31sZOq89rDsmtc/A2vAX7r6shl+bmVI+678He46jgBlw==}
+  /core-js-compat/3.25.2:
+    resolution: {integrity: sha512-TxfyECD4smdn3/CjWxczVtJqVLEEC2up7/82t7vC0AzNogr+4nQ8vyF7abxAuTXWvjTClSbvGhU0RgqA4ToQaQ==}
     dependencies:
-      browserslist: 4.21.3
+      browserslist: 4.21.4
     dev: true
 
   /core-util-is/1.0.3:
@@ -2674,6 +2689,10 @@ packages:
 
   /electron-to-chromium/1.4.247:
     resolution: {integrity: sha512-FLs6R4FQE+1JHM0hh3sfdxnYjKvJpHZyhQDjc2qFq/xFvmmRt/TATNToZhrcGUFzpF2XjeiuozrA8lI0PZmYYw==}
+    dev: true
+
+  /electron-to-chromium/1.4.254:
+    resolution: {integrity: sha512-Sh/7YsHqQYkA6ZHuHMy24e6TE4eX6KZVsZb9E/DvU1nQRIrH4BflO/4k+83tfdYvDl+MObvlqHPRICzEdC9c6Q==}
     dev: true
 
   /encodeurl/1.0.2:
@@ -5607,6 +5626,17 @@ packages:
       picocolors: 1.0.0
     dev: true
 
+  /update-browserslist-db/1.0.9_browserslist@4.21.4:
+    resolution: {integrity: sha512-/xsqn21EGVdXI3EXSum1Yckj3ZVZugqyOZQ/CxYPBD/R+ko9NSUScf8tFF4dOKY+2pvSSJA/S+5B8s4Zr4kyvg==}
+    hasBin: true
+    peerDependencies:
+      browserslist: '>= 4.21.0'
+    dependencies:
+      browserslist: 4.21.4
+      escalade: 3.1.1
+      picocolors: 1.0.0
+    dev: true
+
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
@@ -5956,11 +5986,11 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  file:vite-plugin-pwa-0.12.7.tgz_hmwovejfmhdkcygyi2ttcxz6n4:
-    resolution: {integrity: sha512-cZWNg4AdpySWm4nNuCWoGTRYTTu/wH+ZL4ee8QrQfAGfHOqAYWjj5hWuhmWlnN9mpXnW2IGDThsJbEnw4F8j3g==, tarball: file:vite-plugin-pwa-0.12.7.tgz}
-    id: file:vite-plugin-pwa-0.12.7.tgz
+  file:vite-plugin-pwa-0.12.8.tgz_hmwovejfmhdkcygyi2ttcxz6n4:
+    resolution: {integrity: sha512-PyjUsnhFvN76Qj8eRJ/Lca8Dw7YB0BxMoWgUJeSDpsVDLKgOfIjsCIvnvMzDA9qTTS9viHyA+PsU3WoynV1mgw==, tarball: file:vite-plugin-pwa-0.12.8.tgz}
+    id: file:vite-plugin-pwa-0.12.8.tgz
     name: vite-plugin-pwa
-    version: 0.12.7
+    version: 0.12.8
     peerDependencies:
       vite: ^3.1.0
       workbox-build: ^6.5.4
