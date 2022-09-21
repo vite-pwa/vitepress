@@ -38,9 +38,9 @@ export function withPwa(config: UserConfig) {
       name: 'vite-plugin-pwa:vitepress',
       apply: 'build',
       enforce: 'post',
-      configResolved(viteConfig) {
-        if (!viteConfig.build.ssr)
-          api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
+      configResolved(resolvedViteconfig) {
+        if (!resolvedViteconfig.build.ssr)
+          api = resolvedViteconfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
       },
     },
   )
@@ -63,11 +63,11 @@ export function withPwa(config: UserConfig) {
     }
 
     const registerSWData = api?.registerSWData()
-    if (registerSWData) {
+    if (registerSWData && registerSWData.shouldRegisterSW) {
       if (registerSWData.inline) {
         head.push([
           'script',
-          { id: 'vite-plugin-pwa-inline-sw' },
+          { id: 'vite-plugin-pwa:inline-sw' },
           `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${registerSWData.scope}' })})}`,
         ])
       }
@@ -75,7 +75,7 @@ export function withPwa(config: UserConfig) {
         head.push([
           'script',
           {
-            id: 'vite-plugin-pwa-register-sw',
+            id: 'vite-plugin-pwa:register-sw',
             src: registerSWData.registerPath,
           },
         ])
