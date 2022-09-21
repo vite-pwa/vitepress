@@ -14,6 +14,7 @@ export default withPwa(defineConfig({
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'alternate icon', href: '/favicon.ico' }],
     ['link', { rel: 'mask-icon', href: '/favicon.svg', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
@@ -61,6 +62,10 @@ export default withPwa(defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+    },
+    devOptions: {
+      enabled: true,
+      navigateFallback: '/',
     },
   },
 }))
