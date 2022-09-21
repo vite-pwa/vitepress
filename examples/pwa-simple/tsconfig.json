@@ -14,7 +14,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client",
-      "vitepress"
+      "vitepress",
+      "@vite-pwa/vitepress"
     ]
   },
   "include": [

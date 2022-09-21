@@ -1,9 +1,8 @@
-import { type DefaultTheme, defineConfigWithTheme } from 'vitepress'
+import { type UserConfig, defineConfigWithTheme } from 'vitepress'
 import { VitePWA, type VitePluginPWAAPI } from 'vite-plugin-pwa'
-import type { VitePressPWAOptions } from './types'
 import { configurePWAOptions } from './config'
 
-export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
+export function withPwa(config: UserConfig) {
   let viteConf = config.vite
   if (!viteConf) {
     viteConf = {}
@@ -39,9 +38,9 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
       name: 'vite-plugin-pwa:vitepress',
       apply: 'build',
       enforce: 'post',
-      configResolved(viteConfig) {
-        if (!viteConfig.build.ssr)
-          api = viteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
+      configResolved(resolvedViteconfig) {
+        if (!resolvedViteconfig.build.ssr)
+          api = resolvedViteconfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
       },
     },
   )
@@ -64,11 +63,11 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
     }
 
     const registerSWData = api?.registerSWData()
-    if (registerSWData) {
+    if (registerSWData && registerSWData.shouldRegisterSW) {
       if (registerSWData.inline) {
         head.push([
           'script',
-          { id: 'vite-plugin-pwa-inline-sw' },
+          { id: 'vite-plugin-pwa:inline-sw' },
           `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${registerSWData.scope}' })})}`,
         ])
       }
@@ -76,7 +75,7 @@ export function defineConfig(config: VitePressPWAOptions<DefaultTheme.Config>) {
         head.push([
           'script',
           {
-            id: 'vite-plugin-pwa-register-sw',
+            id: 'vite-plugin-pwa:register-sw',
             src: registerSWData.registerPath,
           },
         ])
