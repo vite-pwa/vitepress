@@ -5852,7 +5852,7 @@ packages:
     dev: true
 
   file:vite-plugin-pwa-0.13.0.tgz_6b7mpudv5jppcry7og3bu4wyku:
-    resolution: {integrity: sha512-LxE0keHcyH8vEG9DFZ5MvuHewZv5riJx8M0YA/u73PI/KlvvUxNPtmIMFWbERD6DNHBQgby+NO2dUg7SAlSBLw==, tarball: file:vite-plugin-pwa-0.13.0.tgz}
+    resolution: {integrity: sha512-C2BTcnWDWZ/xvGc5xYqatC7a8rmVEIF6nwFPl4zg9P0QNk34qAk3RIDNXo0r1VHWhPLCDcWl1RGpjuVvG58c0g==, tarball: file:vite-plugin-pwa-0.13.0.tgz}
     id: file:vite-plugin-pwa-0.13.0.tgz
     name: vite-plugin-pwa
     version: 0.13.0
