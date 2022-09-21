@@ -26,5 +26,5 @@ git checkout -b my-new-branch
 
 ## Testing changes
 
-From the terminal, change to one of the examples folder and run `pnpm run preview`.
+From the terminal, change to one of the examples folder and run `pnpm run build && pnpm run preview`.
 
