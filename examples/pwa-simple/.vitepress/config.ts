@@ -8,6 +8,7 @@ export default withPwa(defineConfig({
       __DATE__: `'${new Date().toISOString()}'`,
     },
   },
+  // mpa: true,
   lang: 'en-US',
   title: 'VitePress PWA',
   description: 'Vite Plugin PWA Integration example for VitePress',
@@ -63,6 +64,10 @@ export default withPwa(defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+    },
+    devOptions: {
+      enabled: true,
+      navigateFallback: '/',
     },
   },
 }))

@@ -32,6 +32,8 @@ export function withPwa(config: UserConfig) {
 
   let api: VitePluginPWAAPI | undefined
 
+  const mpa = config.mpa === true
+
   vitePlugins.push(
     VitePWA({ ...pwaPluginOptions }),
     {
@@ -39,7 +41,7 @@ export function withPwa(config: UserConfig) {
       apply: 'build',
       enforce: 'post',
       configResolved(resolvedViteconfig) {
-        if (!resolvedViteconfig.build.ssr)
+        if (!resolvedViteconfig.build.ssr || mpa)
           api = resolvedViteconfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
       },
     },
