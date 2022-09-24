@@ -23,17 +23,12 @@ export function withPwa(config: UserConfig) {
 
   const { pwa = {}, ...vitePressOptions } = config
 
-  const {
-    defaultMode = 'production',
-    ...pwaPluginOptions
-  } = pwa
-
-  configurePWAOptions(pwaPluginOptions)
+  configurePWAOptions(pwa)
 
   let api: VitePluginPWAAPI | undefined
 
   vitePlugins.push(
-    VitePWA({ ...pwaPluginOptions }),
+    VitePWA({ ...pwa }),
     {
       name: 'vite-plugin-pwa:vitepress',
       apply: 'build',
