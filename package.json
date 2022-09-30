@@ -2,17 +2,17 @@
   "name": "@vite-pwa/vitepress",
   "type": "module",
   "version": "0.13.1",
-  "packageManager": "pnpm@7.12.0",
+  "packageManager": "pnpm@7.12.2",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/vite-pwa/vite-pwa-vitepress-integration",
+  "homepage": "https://github.com/vite-pwa/vitepress#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vite-pwa/vite-pwa-vitepress-integration"
+    "url": "https://github.com/vite-pwa/vitepress.git"
   },
-  "bugs": "https://github.com/vite-pwa/vite-pwa-vitepress-integration/issues",
+  "bugs": "https://github.com/vite-pwa/vitepress/issues",
   "keywords": [
     "vitepress",
     "workbox",
@@ -56,9 +56,9 @@
     "https-localhost": "^4.7.1",
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11",
-    "vite": "^3.1.3",
+    "vite": "^3.1.4",
     "vite-plugin-pwa": "^0.13.1",
-    "vitepress": "1.0.0-alpha.16"
+    "vitepress": "1.0.0-alpha.17"
   },
   "pnpm": {
     "peerDependencyRules": {

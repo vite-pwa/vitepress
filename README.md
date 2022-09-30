@@ -1,5 +1,5 @@
 <p align='center'>
-<img src='https://vite-plugin-pwa.netlify.app/banner_light.svg' alt="@vite-pwa/vitepress - Zero-config PWA for VitePress"><br>
+<img src='./hero.png' alt="@vite-pwa/vitepress - Zero-config PWA for VitePress"><br>
 Zero-config PWA Plugin for VitePress
 </p>
 
