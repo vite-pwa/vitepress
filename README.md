@@ -10,7 +10,7 @@ Zero-config PWA Plugin for VitePress
 <a href="https://www.npmjs.com/package/vite-plugin-pwa" target="__blank">
     <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/vite-plugin-pwa?color=476582&label=">
 </a>
-<a href="https://vite-plugin-pwa.netlify.app/" target="__blank">
+<a href="https://vite-pwa-org.netlify.app/" target="__blank">
     <img src="https://img.shields.io/static/v1?label=&message=docs%20%26%20guides&color=2e859c" alt="Docs & Guides">
 </a>
 <br>
@@ -69,7 +69,7 @@ export default withPwa(defineConfig({
 }))
 ```
 
-Read the [📖 documentation](https://vite-plugin-pwa.netlify.app/guide/) for a complete guide on how to configure and use
+Read the [📖 documentation](https://vite-pwa-org.netlify.app/guide/) for a complete guide on how to configure and use
 this plugin.
 
 ## 👀 Full config
