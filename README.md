@@ -30,7 +30,7 @@ Zero-config PWA Plugin for VitePress
 
 ## 🚀 Features
 
-- 📖 [**Documentation & guides**](https://vite-plugin-pwa.netlify.app/)
+- 📖 [**Documentation & guides**](https://vite-pwa-org.netlify.app/)
 - 👌 **Zero-Config**: sensible built-in default configs for common use cases
 - 🔩 **Extensible**: expose the full ability to customize the behavior of the plugin
 - 🦾 **Type Strong**: written in [TypeScript](https://www.typescriptlang.org/)
