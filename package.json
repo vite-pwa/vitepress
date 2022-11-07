@@ -1,8 +1,8 @@
 {
   "name": "@vite-pwa/vitepress",
   "type": "module",
-  "version": "0.0.1",
-  "packageManager": "pnpm@7.12.2",
+  "version": "0.0.2",
+  "packageManager": "pnpm@7.14.2",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -39,26 +39,26 @@
     "build": "unbuild",
     "lint": "eslint .",
     "lint-fix": "nr lint --fix",
-    "prepublishOnly": "npm run build",
-    "release": "npx bumpp --push --tag --commit && npm publish"
+    "xprepublishOnly": "npm run build",
+    "xrelease": "npx bumpp --push --tag --commit && npm publish"
   },
   "peerDependencies": {
     "@types/workbox-build": "^5.0.1",
-    "vite-plugin-pwa": "^0.13.1"
+    "vite-plugin-pwa": "^0.13.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.27.0",
-    "@antfu/ni": "^0.18.0",
+    "@antfu/eslint-config": "^0.29.4",
+    "@antfu/ni": "^0.18.3",
     "@types/debug": "^4.1.7",
     "@types/workbox-build": "^5.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "eslint": "^8.23.1",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "eslint": "^8.27.0",
     "https-localhost": "^4.7.1",
-    "typescript": "^4.8.3",
-    "unbuild": "^0.8.11",
-    "vite": "^3.1.4",
-    "vite-plugin-pwa": "^0.13.1",
-    "vitepress": "1.0.0-alpha.17"
+    "typescript": "^4.8.4",
+    "unbuild": "^0.9.4",
+    "vite": "^3.2.3",
+    "vite-plugin-pwa": "^0.13.3",
+    "vitepress": "1.0.0-alpha.27"
   },
   "pnpm": {
     "peerDependencyRules": {
