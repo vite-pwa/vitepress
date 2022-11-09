@@ -8,7 +8,7 @@ Zero-config PWA Plugin for VitePress
 <img src='https://img.shields.io/npm/v/@vite-pwa/vitepress?color=33A6B8&label=' alt="NPM version">
 </a>
 <a href="https://www.npmjs.com/package/@vite-pwa/vitepress" target="__blank">
-    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vite-pwa/astro?color=476582&label=">
+    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vite-pwa/vitepress?color=476582&label=">
 </a>
 <a href="https://vite-pwa-org.netlify.app/frameworks/vitepress" target="__blank">
     <img src="https://img.shields.io/static/v1?label=&message=docs%20%26%20guides&color=2e859c" alt="Docs & Guides">
