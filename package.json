@@ -56,8 +56,8 @@
     "typescript": "^4.9.4",
     "unbuild": "^1.0.2",
     "vite": "^4.0.0",
-    "vite-plugin-pwa": "^0.14.0",
-    "vitepress": "1.0.0-alpha.31"
+    "vite-plugin-pwa": "^0.14.1",
+    "vitepress": "1.0.0-alpha.35"
   },
   "pnpm": {
     "peerDependencyRules": {

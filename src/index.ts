@@ -28,6 +28,7 @@ export function withPwa(config: UserConfig) {
   let api: VitePluginPWAAPI | undefined
 
   vitePlugins.push(
+    // @ts-expect-error vite 4 PluginOption and Plugin mismatch
     VitePWA({ ...pwa }),
     {
       name: 'vite-plugin-pwa:vitepress',
