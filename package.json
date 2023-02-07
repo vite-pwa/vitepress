@@ -46,19 +46,19 @@
     "vite-plugin-pwa": "^0.14.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.33.1",
-    "@antfu/ni": "^0.18.8",
+    "@antfu/eslint-config": "^0.35.2",
+    "@antfu/ni": "^0.19.0",
     "@types/debug": "^4.1.7",
     "@types/workbox-build": "^5.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.46.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
     "bumpp": "^8.2.1",
-    "eslint": "^8.29.0",
+    "eslint": "^8.33.0",
     "https-localhost": "^4.7.1",
-    "typescript": "^4.9.4",
-    "unbuild": "^1.0.2",
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.1",
     "vite": "^4.0.0",
-    "vite-plugin-pwa": "^0.14.1",
-    "vitepress": "1.0.0-alpha.35"
+    "vite-plugin-pwa": "^0.14.2",
+    "vitepress": "1.0.0-alpha.45"
   },
   "pnpm": {
     "peerDependencyRules": {
