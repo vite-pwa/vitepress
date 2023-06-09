@@ -10,13 +10,13 @@
     "https": "nr build && serve .vitepress/dist"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vite-pwa/vitepress": "workspace:*",
-    "@vitejs/plugin-vue": "^4.0.0",
+    "@vitejs/plugin-vue": "^4.2.3",
     "https-localhost": "^4.7.1",
-    "typescript": "^4.9.5",
-    "workbox-window": "^6.5.4"
+    "typescript": "^5.1.3",
+    "workbox-window": "^7.0.0"
   }
 }

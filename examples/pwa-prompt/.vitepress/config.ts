@@ -65,6 +65,7 @@ export default withPwa(defineConfig({
     },
     devOptions: {
       enabled: true,
+      suppressWarnings: true,
       navigateFallback: '/',
     },
   },
