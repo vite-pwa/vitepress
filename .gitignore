@@ -4,5 +4,5 @@ dist
 dev-dist
 # intellij stuff
 .idea/
-# routify
-.routify/
+examples/*/.vitepress/cache/
+examples/*/.vitepress/dist/
