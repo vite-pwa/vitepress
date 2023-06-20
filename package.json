@@ -2,7 +2,7 @@
   "name": "@vite-pwa/vitepress",
   "type": "module",
   "version": "0.2.0",
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@8.6.3",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -57,7 +57,7 @@
     "unbuild": "^1.2.1",
     "vite": "^4.3.9",
     "vite-plugin-pwa": ">=0.16.3 <1",
-    "vitepress": "1.0.0-beta.2"
+    "vitepress": "1.0.0-beta.3"
   },
   "pnpm": {
     "peerDependencyRules": {
