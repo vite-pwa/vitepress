@@ -64,7 +64,7 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
         head.push([
           'script',
           { id: 'vite-plugin-pwa:inline-sw' },
-                    `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${registerSWData.scope}' })})}`,
+          `if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('${registerSWData.inlinePath}', { scope: '${registerSWData.scope}' })})}`,
         ])
       }
       else {
