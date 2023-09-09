@@ -6,13 +6,13 @@ const needRefresh = ref(false)
 
 let updateServiceWorker: (() => Promise<void>) | undefined
 
-const onOfflineReady = () => {
+function onOfflineReady() {
   offlineReady.value = true
 }
-const onNeedRefresh = () => {
+function onNeedRefresh() {
   needRefresh.value = true
 }
-const close = async () => {
+async function close() {
   offlineReady.value = false
   needRefresh.value = false
 }
