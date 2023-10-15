@@ -112,10 +112,10 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
       if (typeof allowlist !== 'undefined') {
         const base = siteConfig.site.base ?? '/'
         for (const page of siteConfig.pages) {
-          if (page === 'index.md')
-            allowlist.push(new RegExp(`^${base}(.html)?$`))
-          else
-            allowlist.push(new RegExp(`^${base}${page.replace(/\.md$/, '(.html)?')}$`))
+          const regex = page === 'index.md'
+            ? escapeStringRegexp(base)
+            : escapeStringRegexp(`${base}${page.replace(/\.md$/, '')}`)
+          allowlist.push(new RegExp(`^${regex}(\\.html)?$`))
         }
       }
       await api.generateSW()
@@ -123,4 +123,12 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
   }
 
   return vitePressConfig
+}
+
+function escapeStringRegexp(value: string) {
+  // Escape characters with special meaning either inside or outside character sets.
+  // Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
+  return value
+    .replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
+    .replace(/-/g, '\\x2d')
 }

@@ -1,11 +1,11 @@
 ---
-title: About
+title: Package
 ---
 
 <script setup>
 const date = __DATE__
 </script>
 
-# About
+# Package `{{ $params.pkg }}`
 
 <pre>Generated at: {{ date }}</pre>
