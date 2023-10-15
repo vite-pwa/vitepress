@@ -32,6 +32,13 @@ export default withPwa(defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about', activeMatch: '/about' },
+      {
+        text: 'Packages',
+        items: [
+          { text: 'Foo', link: '/packages/foo' },
+          { text: 'Bar', link: '/packages/bar' },
+        ],
+      },
     ],
   },
   pwa: {
