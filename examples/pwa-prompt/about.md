@@ -1,6 +1,7 @@
 ---
 title: About
 ---
+
 <script setup>
 const date = __DATE__
 </script>
