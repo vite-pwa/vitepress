@@ -81,9 +81,45 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
     return head
   }
 
+  let allowlist: RegExp[] | undefined
+
+  if (pwa.strategies !== 'injectManifest' && pwa.experimental?.includeAllowlist === true) {
+    pwa.workbox = pwa.workbox ?? {}
+    // luckily, navigateFallbackAllowlist is a reference, so we can update it before generating SW
+    allowlist = pwa.workbox.navigateFallbackAllowlist = pwa.workbox.navigateFallbackAllowlist ?? []
+    pwa.workbox.runtimeCaching = pwa.workbox.runtimeCaching ?? []
+    // add offline support: without this, missing page will not work offline
+    pwa.workbox.runtimeCaching.push({
+      urlPattern: ({ request, sameOrigin }) => {
+        return sameOrigin && request.mode === 'navigate'
+      },
+      handler: 'NetworkOnly',
+      options: {
+        plugins: [{
+          /* this callback will be called when the fetch call fails */
+          handlerDidError: async () => Response.redirect('404', 302),
+          /* this callback will prevent caching the response */
+          cacheWillUpdate: async () => null,
+        }],
+      },
+    })
+  }
+
   vitePressConfig.buildEnd = async (siteConfig) => {
     await userBuildEnd?.(siteConfig)
-    api && !api.disabled && await api.generateSW()
+    if (api && !api.disabled) {
+      // add pages to allowlist: any page that is not in the allowlist will not work offline
+      if (typeof allowlist !== 'undefined') {
+        const base = siteConfig.site.base ?? '/'
+        for (const page of siteConfig.pages) {
+          if (page === 'index.md')
+            allowlist.push(new RegExp(`^${base}(.html)?$`))
+          else
+            allowlist.push(new RegExp(`^${base}${page.replace(/\.md$/, '(.html)?')}$`))
+        }
+      }
+      await api.generateSW()
+    }
   }
 
   return vitePressConfig
