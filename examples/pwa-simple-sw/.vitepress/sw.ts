@@ -21,6 +21,8 @@ if (import.meta.env.DEV)
   allowlist = [/^\/$/]
 
 if (import.meta.env.PROD) {
+  const swPath = self.location.pathname.lastIndexOf('/')
+  const base = swPath === 0 ? '/' : self.location.pathname.slice(0, swPath + 1)
   function escapeStringRegexp(value: string) {
     // Escape characters with special meaning either inside or outside character sets.
     // Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
@@ -35,8 +37,8 @@ if (import.meta.env.PROD) {
   }).map((page) => {
     const url = typeof page === 'string' ? page : page.url
     const regex = url === 'index.html'
-      ? escapeStringRegexp('/')
-      : escapeStringRegexp(`/${url.replace(/\.html$/, '')}`)
+      ? escapeStringRegexp(base)
+      : escapeStringRegexp(`${base}${url.replace(/\.html$/, '')}`)
     return new RegExp(`^${regex}(\\.html)?$`)
   })
   registerRoute(
