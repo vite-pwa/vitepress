@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 
+const base = '/' // '/vite-plugin-pwa/'
+
 export default withPwa(defineConfig({
   vite: {
     logLevel: 'info',
@@ -8,6 +10,7 @@ export default withPwa(defineConfig({
       __DATE__: `'${new Date().toISOString()}'`,
     },
   },
+  base,
   lang: 'en-US',
   title: 'VitePress PWA',
   description: 'Vite Plugin PWA Integration example for VitePress',
@@ -33,8 +36,6 @@ export default withPwa(defineConfig({
   },
   pwa: {
     mode: 'development',
-    base: '/',
-    scope: '/',
     registerType: 'autoUpdate',
     // injectRegister: 'inline',
     includeAssets: ['favicon.svg'],
@@ -63,6 +64,9 @@ export default withPwa(defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+    },
+    experimental: {
+      includeAllowlist: true,
     },
     devOptions: {
       enabled: true,
