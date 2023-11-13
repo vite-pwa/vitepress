@@ -2,7 +2,7 @@
   "name": "@vite-pwa/vitepress",
   "type": "module",
   "version": "0.2.3",
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@8.10.3",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
   "license": "MIT",
