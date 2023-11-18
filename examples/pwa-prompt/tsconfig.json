@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "esnext",
+    "incremental": false,
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "esModuleInterop": true,
-    "incremental": false,
-    "skipLibCheck": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "types": [
       "vite/client",
       "vitepress",
       "vite-plugin-pwa/client"
-    ]
+    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true
   },
   "include": [
     "./*.ts",

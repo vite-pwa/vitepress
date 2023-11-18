@@ -45,7 +45,9 @@ Zero-config PWA Plugin for VitePress
 
 ## 📦 Install
 
-> Requires Vite 3.1.0+
+> From v0.3`, `@vite-pwa/vitepress` requires **Vite 5** and **VitePress 1.0.0-rc.26 or above**.
+
+> Using any version older than v0.3 requires Vite 3.1.0+.
 
 ```bash
 npm i @vite-pwa/vitepress -D 
@@ -59,7 +61,7 @@ pnpm add @vite-pwa/vitepress -D
 
 ## 🦄 Usage
 
-You will need wrap your VitePress config with `withPwa`:
+You will need to wrap your VitePress config with `withPwa`:
 
 ```ts
 // .vitepress/config.ts

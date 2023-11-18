@@ -8,6 +8,8 @@ export default withPwa(defineConfig({
       __DATE__: `'${new Date().toISOString()}'`,
     },
   },
+  // for testing purposes
+  assetsDir: './assets/ja',
   lang: 'en-US',
   title: 'VitePress PWA',
   description: 'Vite Plugin PWA Integration example for VitePress',
