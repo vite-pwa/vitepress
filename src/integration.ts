@@ -22,9 +22,7 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
       throw new Error('Remove vite-plugin-pwa plugin from Vite Plugins entry in VitePress config file')
   }
 
-  const { pwa = {} } = config
-
-  configurePWAOptions(pwa)
+  const pwa = configurePWAOptions(config)
 
   let api: VitePluginPWAAPI | undefined
 
@@ -108,6 +106,10 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
   vitePressConfig.buildEnd = async (siteConfig) => {
     await userBuildEnd?.(siteConfig)
     if (api && !api.disabled) {
+      let assetsDir = siteConfig.assetsDir
+      if (assetsDir[assetsDir.length - 1] !== '/')
+        assetsDir += '/'
+
       // add pages to allowlist: any page that is not in the allowlist will not work offline
       if (typeof allowlist !== 'undefined') {
         const base = siteConfig.site.base ?? '/'

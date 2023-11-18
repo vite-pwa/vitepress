@@ -8,6 +8,9 @@ export default withPwa(defineConfig({
       __DATE__: `'${new Date().toISOString()}'`,
     },
   },
+  // for testing purposes: add this again when VP rc-28 released:
+  // VP will create `.assets` instead `assets` folder in dist adding this line
+  // assetsDir: './assets',
   lang: 'en-US',
   title: 'VitePress PWA',
   description: 'Vite Plugin PWA Integration example for VitePress',

@@ -1,17 +1,29 @@
-import type { VitePWAOptions } from 'vite-plugin-pwa'
+import type { DefaultTheme, UserConfig } from 'vitepress'
 
-export function configurePWAOptions(options: Partial<VitePWAOptions>) {
-  if (!options.outDir)
-    options.outDir = '.vitepress/dist'
+export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<T>) {
+  const pwa = config.pwa ?? {}
+  let assetsDir = config.assetsDir ?? 'assets/'
+  if (assetsDir[assetsDir.length - 1] !== '/')
+    assetsDir += '/'
 
-  if (options.strategies === 'injectManifest') {
-    options.injectManifest = options.injectManifest ?? {}
+  // remove './' prefix from assetsDir
+  const dontCacheBustURLsMatching = new RegExp(`^${assetsDir.replace(/^\.*?\//, '')}`)
+
+  if (!pwa.outDir)
+    pwa.outDir = '.vitepress/dist'
+
+  if (pwa.strategies === 'injectManifest') {
+    pwa.injectManifest = pwa.injectManifest ?? {}
+    pwa.injectManifest.dontCacheBustURLsMatching = dontCacheBustURLsMatching
   }
   else {
-    options.workbox = options.workbox ?? {}
-    if (options.registerType === 'autoUpdate' && (options.injectRegister === 'script' || options.injectRegister === 'inline')) {
-      options.workbox.clientsClaim = true
-      options.workbox.skipWaiting = true
+    pwa.workbox = pwa.workbox ?? {}
+    pwa.workbox.dontCacheBustURLsMatching = dontCacheBustURLsMatching
+    if (pwa.registerType === 'autoUpdate' && (pwa.injectRegister === 'script' || pwa.injectRegister === 'inline')) {
+      pwa.workbox.clientsClaim = true
+      pwa.workbox.skipWaiting = true
     }
   }
+
+  return pwa
 }
