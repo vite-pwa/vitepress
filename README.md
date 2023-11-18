@@ -45,7 +45,7 @@ Zero-config PWA Plugin for VitePress
 
 ## 📦 Install
 
-> From v0.3`, `@vite-pwa/vitepress` requires **Vite 5** and **VitePress 1.0.0-rc.26 or above**.
+> From v0.3, `@vite-pwa/vitepress` requires **Vite 5** and **VitePress 1.0.0-rc.26 or above**.
 
 > Using any version older than v0.3 requires Vite 3.1.0+.
 
