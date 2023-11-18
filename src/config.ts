@@ -1,13 +1,16 @@
 import type { DefaultTheme, UserConfig } from 'vitepress'
+import { escapeStringRegexp } from './utils'
 
 export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<T>) {
   const pwa = config.pwa ?? {}
-  let assetsDir = (config.assetsDir ?? 'assets/').replace(/\\/g, '/')
-  if (assetsDir[assetsDir.length - 1] !== '/')
-    assetsDir += '/'
+  const assetsDir = config.assetsDir
+    ? config.assetsDir
+      .replace(/^\.?\/|\/$/g, '')
+      .replace(/\\/g, '/')
+    : 'assets'
 
   // remove './' prefix from assetsDir
-  const dontCacheBustURLsMatching = new RegExp(`^${assetsDir.replace(/^\.*?\//, '')}`)
+  const dontCacheBustURLsMatching = new RegExp(`^${escapeStringRegexp(assetsDir)}/`)
 
   if (!pwa.outDir)
     pwa.outDir = '.vitepress/dist'
