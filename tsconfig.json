@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "ESNext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "skipLibCheck": true,
-    "noEmit": true,
     "types": [
       "vite",
       "vite-plugin-pwa",
       "vitepress"
-    ]
+    ],
+    "noEmit": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "dist",
