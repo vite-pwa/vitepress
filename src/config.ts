@@ -5,8 +5,8 @@ export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<
   const pwa = config.pwa ?? {}
   const assetsDir = config.assetsDir
     ? config.assetsDir
-      .replace(/^\.?\/|\/$/g, '')
       .replace(/\\/g, '/')
+      .replace(/^\.?\/|\/$/g, '')
     : 'assets'
 
   // remove './' prefix from assetsDir
