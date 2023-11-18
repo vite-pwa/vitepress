@@ -106,10 +106,6 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
   vitePressConfig.buildEnd = async (siteConfig) => {
     await userBuildEnd?.(siteConfig)
     if (api && !api.disabled) {
-      let assetsDir = siteConfig.assetsDir
-      if (assetsDir[assetsDir.length - 1] !== '/')
-        assetsDir += '/'
-
       // add pages to allowlist: any page that is not in the allowlist will not work offline
       if (typeof allowlist !== 'undefined') {
         const base = siteConfig.site.base ?? '/'
