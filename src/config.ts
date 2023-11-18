@@ -2,7 +2,7 @@ import type { DefaultTheme, UserConfig } from 'vitepress'
 
 export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<T>) {
   const pwa = config.pwa ?? {}
-  let assetsDir = config.assetsDir ?? 'assets/'
+  let assetsDir = (config.assetsDir ?? 'assets/').replace(/\\/g, '/')
   if (assetsDir[assetsDir.length - 1] !== '/')
     assetsDir += '/'
 
