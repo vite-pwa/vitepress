@@ -44,7 +44,7 @@ export default withPwa(defineConfig({
   pwa: {
     mode: 'development',
     registerType: 'autoUpdate',
-    // injectRegister: 'inline',
+    injectRegister: 'script-defer',
     includeAssets: ['favicon.svg'],
     manifest: {
       name: 'VitePress PWA',
