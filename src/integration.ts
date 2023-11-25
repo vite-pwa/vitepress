@@ -59,7 +59,7 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
 
     const registerSWData = api?.registerSWData()
     if (registerSWData && registerSWData.shouldRegisterSW) {
-      if (registerSWData.inline) {
+      if (registerSWData.mode === 'inline') {
         head.push([
           'script',
           { id: 'vite-plugin-pwa:inline-sw' },
@@ -67,13 +67,25 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
         ])
       }
       else {
-        head.push([
-          'script',
-          {
-            id: 'vite-plugin-pwa:register-sw',
-            src: registerSWData.registerPath,
-          },
-        ])
+        if (registerSWData.mode === 'script-defer') {
+          head.push([
+            'script',
+            {
+              id: 'vite-plugin-pwa:register-sw',
+              defer: 'defer',
+              src: registerSWData.registerPath,
+            },
+          ])
+        }
+        else {
+          head.push([
+            'script',
+            {
+              id: 'vite-plugin-pwa:register-sw',
+              src: registerSWData.registerPath,
+            },
+          ])
+        }
       }
     }
 

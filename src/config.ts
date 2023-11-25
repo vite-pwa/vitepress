@@ -22,7 +22,7 @@ export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<
   else {
     pwa.workbox = pwa.workbox ?? {}
     pwa.workbox.dontCacheBustURLsMatching = dontCacheBustURLsMatching
-    if (pwa.registerType === 'autoUpdate' && (pwa.injectRegister === 'script' || pwa.injectRegister === 'inline')) {
+    if (pwa.registerType === 'autoUpdate' && (pwa.injectRegister === 'script' || pwa.injectRegister === 'script-defer' || pwa.injectRegister === 'inline')) {
       pwa.workbox.clientsClaim = true
       pwa.workbox.skipWaiting = true
     }
