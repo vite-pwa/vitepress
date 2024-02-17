@@ -60,6 +60,15 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
   vitePressConfig.transformHead = async (ctx) => {
     const head = (await userTransformHead?.(ctx)) ?? []
 
+    const assetsGenerator = await api?.pwaAssetsGenerator()
+    if (assetsGenerator) {
+      const htmlAssets = assetsGenerator.resolveHtmlAssets()
+      if (htmlAssets.themeColor)
+        head.push(['meta', { name: 'theme-color', content: htmlAssets.themeColor.content }])
+      for (const link of htmlAssets.links)
+        head.push(['link', { ...link }])
+    }
+
     const webManifestData = api?.webManifestData()
     if (webManifestData) {
       const href = webManifestData.href
