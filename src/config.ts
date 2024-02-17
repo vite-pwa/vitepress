@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import type { DefaultTheme, UserConfig } from 'vitepress'
 import { escapeStringRegexp } from './utils'
 
@@ -14,6 +15,17 @@ export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<
 
   if (!pwa.outDir)
     pwa.outDir = '.vitepress/dist'
+
+  if (pwa.pwaAssets) {
+    const publicDir = typeof config.vite?.publicDir === 'string'
+      ? resolve(config.vite.publicDir)
+      : resolve('public')
+    pwa.pwaAssets.integration = {
+      baseUrl: config.base ?? config.vite?.base ?? '/',
+      publicDir,
+      outDir: resolve(pwa.outDir),
+    }
+  }
 
   if (pwa.strategies === 'injectManifest') {
     pwa.injectManifest = pwa.injectManifest ?? {}

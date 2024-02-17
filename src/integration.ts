@@ -27,18 +27,30 @@ export function withUserConfig<T = DefaultTheme.Config>(config: UserConfig<T>) {
 
   let api: VitePluginPWAAPI | undefined
 
-  vitePlugins.push(
-    VitePWA({ ...pwa }),
-    {
-      name: 'vite-plugin-pwa:vitepress',
-      apply: 'build',
-      enforce: 'post',
-      configResolved(resolvedViteConfig) {
-        if (!resolvedViteConfig.build.ssr)
-          api = resolvedViteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
-      },
+  vitePlugins.push(VitePWA({ ...pwa }))
+  vitePlugins.push({
+    name: 'vite-plugin-pwa:pwa-assets:vitepress',
+    apply: 'serve',
+    enforce: 'pre',
+    configResolved(resolvedViteConfig) {
+      if (!resolvedViteConfig.build.ssr)
+        api = resolvedViteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
     },
-  )
+    async handleHotUpdate({ file, server }) {
+      const pwaAssetsGenerator = await api?.pwaAssetsGenerator()
+      if (await pwaAssetsGenerator?.checkHotUpdate(file))
+        await server.restart()
+    },
+  })
+  vitePlugins.push({
+    name: 'vite-plugin-pwa:vitepress',
+    apply: 'build',
+    enforce: 'post',
+    configResolved(resolvedViteConfig) {
+      if (!resolvedViteConfig.build.ssr)
+        api = resolvedViteConfig.plugins.find(p => p.name === 'vite-plugin-pwa')?.api
+    },
+  })
 
   const vitePressConfig = config as UserConfig<T>
 
