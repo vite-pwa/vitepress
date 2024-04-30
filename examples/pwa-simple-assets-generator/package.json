@@ -12,6 +12,6 @@
   "devDependencies": {
     "@vite-pwa/vitepress": "workspace:*",
     "https-localhost": "^4.7.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5"
   }
 }
