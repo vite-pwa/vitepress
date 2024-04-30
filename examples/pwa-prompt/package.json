@@ -16,7 +16,7 @@
     "@vite-pwa/vitepress": "workspace:*",
     "@vitejs/plugin-vue": "^4.5.0",
     "https-localhost": "^4.7.1",
-    "typescript": "^5.2.2",
-    "workbox-window": "^7.0.0"
+    "typescript": "^5.4.5",
+    "workbox-window": "^7.1.0"
   }
 }
