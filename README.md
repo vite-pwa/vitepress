@@ -1,6 +1,6 @@
 <p align='center'>
 <img src='./hero.png' alt="@vite-pwa/vitepress - Zero-config PWA for VitePress"><br>
-Zero-config PWA Plugin for VitePress
+Zero-config PWA Plugin for VitePressX
 </p>
 
 <p align='center'>
