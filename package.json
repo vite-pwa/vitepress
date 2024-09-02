@@ -1,7 +1,7 @@
 {
   "name": "@vite-pwa/vitepress",
   "type": "module",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "packageManager": "pnpm@9.9.0",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
