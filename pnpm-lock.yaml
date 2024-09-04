@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@vite-pwa/assets-generator':
-        specifier: ^0.2.4
-        version: 0.2.4
+        specifier: ^0.2.6
+        version: 0.2.6
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.43.1
@@ -43,8 +43,8 @@ importers:
         specifier: ^5.2.10
         version: 5.2.10(terser@5.31.0)
       vite-plugin-pwa:
-        specifier: '>=0.20.3 <1'
-        version: 0.20.3(@vite-pwa/assets-generator@0.2.4)(vite@5.2.10(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0)
+        specifier: '>=0.20.4 <1'
+        version: 0.20.4(@vite-pwa/assets-generator@0.2.6)(vite@5.2.10(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0)
       vitepress:
         specifier: ^1.1.4
         version: 1.1.4(@algolia/client-search@4.23.3)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
@@ -1488,8 +1488,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vite-pwa/assets-generator@0.2.4':
-    resolution: {integrity: sha512-DXyPLPR/IpbZPSpo1amZEPghY/ziIwpTUKNaz0v1xG+ELzCXmrVQhVzEMqr2JLSqRxjc+UzKfGJA/YdUuaao3w==}
+  '@vite-pwa/assets-generator@0.2.6':
+    resolution: {integrity: sha512-kK44dXltvoubEo5B+6tCGjUrOWOE1+dA4DForbFpO1rKy2wSkAVGrs8tyfN6DzTig89/QKyV8XYodgmaKyrYng==}
     engines: {node: '>=16.14.0'}
     hasBin: true
 
@@ -2019,6 +2019,15 @@ packages:
 
   debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.3.6:
+    resolution: {integrity: sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -4064,11 +4073,11 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vite-plugin-pwa@0.20.3:
-    resolution: {integrity: sha512-aqCOWWSwfX4o6H+6NyEvhzFs3eENBqYFKUK4FYx5OZ3jGio73BE189bPz9+BBgjHBLozldQVSmZTHySVC2zNkg==}
+  vite-plugin-pwa@0.20.4:
+    resolution: {integrity: sha512-AreLrlstKCn56bzfIIhg5P4p12QNsYmHfKiSlrVk9FK8028IfBFeMvhQNSumBgQmb4RaHLm0SaOLvh/rzOImvw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@vite-pwa/assets-generator': ^0.2.4
+      '@vite-pwa/assets-generator': ^0.2.6
       vite: ^3.1.0 || ^4.0.0 || ^5.0.0
       workbox-build: ^7.1.0
       workbox-window: ^7.1.0
@@ -5750,7 +5759,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vite-pwa/assets-generator@0.2.4':
+  '@vite-pwa/assets-generator@0.2.6':
     dependencies:
       cac: 6.7.14
       colorette: 2.0.20
@@ -6376,6 +6385,10 @@ snapshots:
       ms: 2.1.3
 
   debug@4.3.4:
+    dependencies:
+      ms: 2.1.2
+
+  debug@4.3.6:
     dependencies:
       ms: 2.1.2
 
@@ -8682,16 +8695,16 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-pwa@0.20.3(@vite-pwa/assets-generator@0.2.4)(vite@5.2.10(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0):
+  vite-plugin-pwa@0.20.4(@vite-pwa/assets-generator@0.2.6)(vite@5.2.10(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0):
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.6
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.5
       vite: 5.2.10(terser@5.31.0)
       workbox-build: 7.1.0
       workbox-window: 7.1.0
     optionalDependencies:
-      '@vite-pwa/assets-generator': 0.2.4
+      '@vite-pwa/assets-generator': 0.2.6
     transitivePeerDependencies:
       - supports-color
 
