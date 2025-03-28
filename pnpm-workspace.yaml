@@ -1,2 +1,7 @@
 packages:
   - examples/*
+ignoredBuiltDependencies:
+  - esbuild
+  - vue-demi
+onlyBuiltDependencies:
+  - sharp
