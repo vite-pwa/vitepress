@@ -32,13 +32,13 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "*.d.ts"
+    "*.d.ts",
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",
     "lint": "eslint .",
-    "lint-fix": "nr lint --fix",
+    "lint:fix": "nr lint --fix",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish"
   },
@@ -52,12 +52,12 @@
     }
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.43.1",
+    "@antfu/eslint-config": "^4.11.0",
     "@antfu/ni": "^0.21.9",
     "@types/debug": "^4.1.12",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "bumpp": "^9.2.0",
-    "eslint": "^8.54.0",
+    "eslint": "^9.23.0",
     "https-localhost": "^4.7.1",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",

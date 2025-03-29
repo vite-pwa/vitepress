@@ -1,13 +1,13 @@
-import { resolve } from 'node:path'
 import type { DefaultTheme, UserConfig } from 'vitepress'
+import { resolve } from 'node:path'
 import { escapeStringRegexp } from './utils'
 
 export function configurePWAOptions<T = DefaultTheme.Config>(config: UserConfig<T>) {
   const pwa = config.pwa ?? {}
   const assetsDir = config.assetsDir
     ? config.assetsDir
-      .replace(/\\/g, '/')
-      .replace(/^\.?\/|\/$/g, '')
+        .replace(/\\/g, '/')
+        .replace(/^\.?\/|\/$/g, '')
     : 'assets'
 
   // remove './' prefix from assetsDir

@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+import { defineConfig } from 'vitepress'
 
 export default withPwa(defineConfig({
   vite: {

@@ -3,19 +3,19 @@
     "incremental": false,
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": ".",
     "types": [
       "vite/client",
       "vitepress",
       "@vite-pwa/vitepress"
     ],
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
   "include": [
