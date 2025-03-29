@@ -23,7 +23,7 @@ onBeforeMount(async () => {
     immediate: true,
     onOfflineReady,
     onNeedRefresh,
-    onRegistered() {
+    onRegisteredSW() {
       // eslint-disable-next-line no-console
       console.info('Service Worker registered')
     },
