@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+import { defineConfig } from 'vitepress'
 
 const base = '/' // '/vite-plugin-pwa/'
 

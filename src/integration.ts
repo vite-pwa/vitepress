@@ -1,5 +1,5 @@
-import type { DefaultTheme, UserConfig } from 'vitepress'
 import type { VitePluginPWAAPI } from 'vite-plugin-pwa'
+import type { DefaultTheme, UserConfig } from 'vitepress'
 import { VitePWA } from 'vite-plugin-pwa'
 import { configurePWAOptions } from './config'
 import { escapeStringRegexp } from './utils'

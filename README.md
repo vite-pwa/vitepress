@@ -27,7 +27,6 @@ Zero-config PWA Plugin for VitePress
   </a>
 </p>
 
-
 ## 🚀 Features
 
 - 📖 [**Documentation & guides**](https://vite-pwa-org.netlify.app/)
@@ -51,12 +50,12 @@ Zero-config PWA Plugin for VitePress
 > Using any version older than v0.3 requires Vite 3.1.0+.
 
 ```bash
-npm i @vite-pwa/vitepress -D 
+npm i @vite-pwa/vitepress -D
 
-# yarn 
+# yarn
 yarn add @vite-pwa/vitepress -D
 
-# pnpm 
+# pnpm
 pnpm add @vite-pwa/vitepress -D
 ```
 
@@ -66,8 +65,8 @@ You will need to wrap your VitePress config with `withPwa`:
 
 ```ts
 // .vitepress/config.ts
-import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+import { defineConfig } from 'vitepress'
 
 export default withPwa(defineConfig({
   /* your VitePress options */
@@ -85,7 +84,6 @@ Check out the type declaration [src/types.ts](./src/types.ts) and the following 
 
 - [Web app manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 - [Workbox](https://developers.google.com/web/tools/workbox)
-
 
 ## 📄 License
 
