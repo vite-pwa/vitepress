@@ -46,8 +46,8 @@ importers:
         specifier: ^5.2.10
         version: 5.2.10(@types/node@20.17.28)(terser@5.31.0)
       vite-plugin-pwa:
-        specifier: ^1.1.0
-        version: 1.1.0(@vite-pwa/assets-generator@1.0.0)(vite@5.2.10(@types/node@20.17.28)(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0)
+        specifier: ^1.2.0
+        version: 1.2.0(@vite-pwa/assets-generator@1.0.0)(vite@5.2.10(@types/node@20.17.28)(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.4.0)
       vitepress:
         specifier: ^1.1.4
         version: 1.1.4(@algolia/client-search@4.23.3)(@types/node@20.17.28)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
@@ -71,8 +71,8 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
       workbox-window:
-        specifier: ^7.1.0
-        version: 7.1.0
+        specifier: ^7.4.0
+        version: 7.4.0
 
   examples/pwa-simple:
     devDependencies:
@@ -4559,14 +4559,14 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vite-plugin-pwa@1.1.0:
-    resolution: {integrity: sha512-VsSpdubPzXhHWVINcSx6uHRMpOHVHQcHsef1QgkOlEoaIDAlssFEW88LBq1a59BuokAhsh2kUDJbaX1bZv4Bjw==}
+  vite-plugin-pwa@1.2.0:
+    resolution: {integrity: sha512-a2xld+SJshT9Lgcv8Ji4+srFJL4k/1bVbd1x06JIkvecpQkwkvCncD1+gSzcdm3s+owWLpMJerG3aN5jupJEVw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       '@vite-pwa/assets-generator': ^1.0.0
       vite: ^3.1.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-      workbox-build: ^7.3.0
-      workbox-window: ^7.3.0
+      workbox-build: ^7.4.0
+      workbox-window: ^7.4.0
     peerDependenciesMeta:
       '@vite-pwa/assets-generator':
         optional: true
@@ -4677,6 +4677,9 @@ packages:
   workbox-core@7.1.0:
     resolution: {integrity: sha512-5KB4KOY8rtL31nEF7BfvU7FMzKT4B5TkbYa2tzkS+Peqj0gayMT9SytSFtNzlrvMaWgv6y/yvP9C0IbpFjV30Q==}
 
+  workbox-core@7.4.0:
+    resolution: {integrity: sha512-6BMfd8tYEnN4baG4emG9U0hdXM4gGuDU3ectXuVHnj71vwxTFI7WOpQJC4siTOlVtGqCUtj0ZQNsrvi6kZZTAQ==}
+
   workbox-expiration@7.1.0:
     resolution: {integrity: sha512-m5DcMY+A63rJlPTbbBNtpJ20i3enkyOtSgYfv/l8h+D6YbbNiA0zKEkCUaMsdDlxggla1oOfRkyqTvl5Ni5KQQ==}
 
@@ -4709,6 +4712,9 @@ packages:
 
   workbox-window@7.1.0:
     resolution: {integrity: sha512-ZHeROyqR+AS5UPzholQRDttLFqGMwP0Np8MKWAdyxsDETxq3qOAyXvqessc3GniohG6e0mAqSQyKOHmT8zPF7g==}
+
+  workbox-window@7.4.0:
+    resolution: {integrity: sha512-/bIYdBLAVsNR3v7gYGaV4pQW3M3kEPx5E8vDxGvxo6khTrGtSSCS7QiFKv9ogzBgZiy0OXLP9zO28U/1nF1mfw==}
 
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
@@ -9723,14 +9729,14 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-pwa@1.1.0(@vite-pwa/assets-generator@1.0.0)(vite@5.2.10(@types/node@20.17.28)(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.1.0):
+  vite-plugin-pwa@1.2.0(@vite-pwa/assets-generator@1.0.0)(vite@5.2.10(@types/node@20.17.28)(terser@5.31.0))(workbox-build@7.1.0)(workbox-window@7.4.0):
     dependencies:
       debug: 4.4.0
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.12
       vite: 5.2.10(@types/node@20.17.28)(terser@5.31.0)
       workbox-build: 7.1.0
-      workbox-window: 7.1.0
+      workbox-window: 7.4.0
     optionalDependencies:
       '@vite-pwa/assets-generator': 1.0.0
     transitivePeerDependencies:
@@ -9911,6 +9917,8 @@ snapshots:
 
   workbox-core@7.1.0: {}
 
+  workbox-core@7.4.0: {}
+
   workbox-expiration@7.1.0:
     dependencies:
       idb: 7.1.1
@@ -9965,6 +9973,11 @@ snapshots:
     dependencies:
       '@types/trusted-types': 2.0.7
       workbox-core: 7.1.0
+
+  workbox-window@7.4.0:
+    dependencies:
+      '@types/trusted-types': 2.0.7
+      workbox-core: 7.4.0
 
   wrappy@1.0.2: {}
 

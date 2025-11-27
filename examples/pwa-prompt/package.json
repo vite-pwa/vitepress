@@ -17,6 +17,6 @@
     "@vitejs/plugin-vue": "^4.5.0",
     "https-localhost": "^4.7.1",
     "typescript": "^5.4.5",
-    "workbox-window": "^7.1.0"
+    "workbox-window": "^7.4.0"
   }
 }
