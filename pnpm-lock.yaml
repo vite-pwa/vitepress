@@ -21,12 +21,24 @@ catalogs:
       specifier: ^3.2.3
       version: 3.3.1
   pwa:
+    '@unplugin-pwa/core':
+      specifier: ^0.0.2
+      version: 0.0.2
+    '@unplugin-pwa/inspector':
+      specifier: ^0.0.2
+      version: 0.0.2
     '@unplugin-pwa/vite':
       specifier: ^0.0.2
       version: 0.0.2
     '@vite-pwa/assets-generator':
       specifier: ^2.0.0
       version: 2.0.0
+    '@vite-pwa/workbox-build':
+      specifier: ^8.0.13
+      version: 8.0.13
+    '@vite-pwa/workbox-swkit':
+      specifier: ^8.0.13
+      version: 8.0.13
     '@vite-pwa/workbox-window':
       specifier: ^8.0.13
       version: 8.0.13
@@ -83,9 +95,24 @@ importers:
 
   .:
     dependencies:
+      '@unplugin-pwa/core':
+        specifier: catalog:pwa
+        version: 0.0.2(@vite-pwa/assets-generator@2.0.0)(magicast@0.5.5)(rolldown@1.2.15)(typescript@6.0.3)(vite@8.3.5)
+      '@unplugin-pwa/inspector':
+        specifier: catalog:pwa
+        version: 0.0.2
       '@unplugin-pwa/vite':
         specifier: catalog:pwa
         version: 0.0.2(@vite-pwa/assets-generator@2.0.0)(magicast@0.5.5)(rolldown@1.2.15)(typescript@6.0.3)(vite@8.3.5)
+      '@vite-pwa/workbox-build':
+        specifier: catalog:pwa
+        version: 8.0.13(magicast@0.5.5)(rolldown@1.2.15)(typescript@6.0.3)(vite@8.3.5)
+      '@vite-pwa/workbox-swkit':
+        specifier: catalog:pwa
+        version: 8.0.13
+      '@vite-pwa/workbox-window':
+        specifier: catalog:pwa
+        version: 8.0.13
       magicast:
         specifier: ^0.5.0
         version: 0.5.5
