@@ -23,7 +23,7 @@ export async function cleanupJSTypes() {
 }
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/types.ts'],
+  entry: ['src/config.ts', 'src/index.ts', 'src/types.ts'],
   platform: 'node',
   dts: true,
   attw: {

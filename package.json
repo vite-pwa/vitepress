@@ -23,6 +23,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./dist/index.mjs",
+    "./config": "./dist/config.mjs",
     "./types": {
       "types": "./dist/index.d.mts"
     },
