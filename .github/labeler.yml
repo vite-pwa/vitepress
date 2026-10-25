@@ -3,7 +3,7 @@
 examples:
   - changed-files:
     - any-glob-to-any-file:
-      - 'exmaples/**'
+      - 'examples/**'
 
 # Other categories
 🚨 action:
