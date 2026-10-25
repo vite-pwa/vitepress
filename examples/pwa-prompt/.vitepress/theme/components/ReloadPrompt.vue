@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, shallowRef } from 'vue'
 
-const offlineReady = ref(false)
-const needRefresh = ref(false)
+const offlineReady = shallowRef(false)
+const needRefresh = shallowRef(false)
 
 let updateServiceWorker: (() => Promise<void>) | undefined
 

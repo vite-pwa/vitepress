@@ -1,0 +1,6 @@
+catalogs:
+  typescript:
+    typescript: ^0.0.0
+  utils:
+    https-localhost: ^0.0.0
+    magicast: ^0.0.0

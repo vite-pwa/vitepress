@@ -1,16 +1,18 @@
 <p align='center'>
-<img src='./hero.png' alt="@vite-pwa/vitepress - Zero-config PWA for VitePress"><br>
-Zero-config PWA Plugin for VitePress
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vite-pwa/.github/main/vitepress-hero-dark.svg" />
+        <img src="https://raw.githubusercontent.com/vite-pwa/.github/main/vitepress-hero.svg" alt="@vite-pwa/vitepress - Zero-config PWA for VitePress">
+    </picture>
 </p>
 
 <p align='center'>
-<a href='https://www.npmjs.com/package/@vite-pwa/vitepress' target="__blank">
+<a href='https://npmx.dev/package/@vite-pwa/vitepress' target="__blank">
 <img src='https://img.shields.io/npm/v/@vite-pwa/vitepress?color=33A6B8&label=' alt="NPM version">
 </a>
-<a href="https://www.npmjs.com/package/@vite-pwa/vitepress" target="__blank">
+<a href="https://npmx.dev/package/@vite-pwa/vitepress" target="__blank">
     <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vite-pwa/vitepress?color=476582&label=">
 </a>
-<a href="https://vite-pwa-org.netlify.app/frameworks/vitepress" target="__blank">
+<a href="https://unplugin-pwa.netlify.app/frameworks/vitepress" target="__blank">
     <img src="https://img.shields.io/static/v1?label=&message=docs%20%26%20guides&color=2e859c" alt="Docs & Guides">
 </a>
 <br>
@@ -23,7 +25,7 @@ Zero-config PWA Plugin for VitePress
 
 <p align="center">
   <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
+    <img src="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg" alt="Anthony Fu SVG sponsors image"/>
   </a>
 </p>
 
@@ -45,7 +47,9 @@ Zero-config PWA Plugin for VitePress
 
 ## 📦 Install
 
-> From v0.3, `@vite-pwa/vitepress` requires **Vite 5** and **VitePress 1.0.0-rc.26 or above**.
+> From v2.0.0 `@vite-pwa/vitepress` using [@unplugin-pwa/vite](https://github.com/vite-pwa/unplugin-pwa/tree/main/packages/vite) and [@vite-pwa/workbox-build](https://github.com/vite-pwa/workbox/tree/main/packages/build). Requires Node 22.14.0 or above.
+
+> From v0.3.0, `@vite-pwa/vitepress` requires **Vite 5** and **VitePress 1.0.0-rc.26 or above**.
 
 > Using any version older than v0.3 requires Vite 3.1.0+.
 

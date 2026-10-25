@@ -4,14 +4,18 @@
   "version": "0.0.0",
   "private": "true",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "nr build && vitepress serve",
-    "https": "nr build && serve .vitepress/dist"
+    "dev:dual": "DUAL_SW=true vitepress dev",
+    "dev:classic": "vitepress dev",
+    "build:dual": "DUAL_SW=true vitepress build",
+    "build:classic": "vitepress build",
+    "preview:dual": "nr build:dual && vitepress serve",
+    "preview:classic": "nr build:classic && vitepress serve",
+    "https:dual": "nr build:dual && serve .vitepress/dist",
+    "https:classic": "nr build:classic && serve .vitepress/dist"
   },
   "devDependencies": {
     "@vite-pwa/vitepress": "workspace:*",
-    "https-localhost": "^4.7.1",
-    "typescript": "^5.2.2"
+    "https-localhost": "catalog:utils",
+    "typescript": "catalog:typescript"
   }
 }
