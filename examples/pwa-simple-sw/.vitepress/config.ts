@@ -1,5 +1,9 @@
+import process from 'node:process'
 import { withPwa } from '@vite-pwa/vitepress'
+import { DevTools } from '@vitejs/devtools'
 import { defineConfig } from 'vitepress'
+
+const swType = process.env.DUAL_SW === 'true' ? 'classic-and-module' : 'classic'
 
 const base = '/' // '/vite-plugin-pwa/'
 
@@ -9,18 +13,19 @@ export default withPwa(defineConfig({
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
     },
+    plugins: [DevTools()],
   },
   base,
   lang: 'en-US',
   title: 'VitePress PWA',
-  description: 'Vite Plugin PWA Integration example for VitePress',
+  description: 'Unplugin PWA Integration example for VitePress',
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'mask-icon', href: '/favicon.svg', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
-      content: 'PWA, VitePress, workbox, Vite, vite-plugin',
+      content: 'PWA, VitePress, workbox, Vite, unplugin-pwa',
     }],
     ['link', { rel: 'apple-touch-icon', href: '/pwa-192x192.png', sizes: '192x192' }],
   ],
@@ -42,13 +47,12 @@ export default withPwa(defineConfig({
     ],
   },
   pwa: {
-    mode: 'development',
+    // mode: 'development',
     registerType: 'autoUpdate',
-    strategies: 'injectManifest',
-    srcDir: '.vitepress/',
-    filename: 'sw.ts',
-    // injectRegister: 'inline',
-    includeAssets: ['favicon.svg'],
+    strategies: 'buildSW',
+    swType,
+    injectRegister: 'script-defer',
+    includeManifestIcons: false,
     manifest: {
       name: 'VitePress PWA',
       short_name: 'VitePressPWA',
@@ -72,11 +76,14 @@ export default withPwa(defineConfig({
         },
       ],
     },
-    injectManifest: {
+    buildSW: {
+      swSrc: '.vitepress/sw.ts',
+      inlineWorkboxRuntime: false,
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
     },
     devOptions: {
       enabled: true,
+      inspector: 'vite-devtools',
       suppressWarnings: true,
       type: 'module',
       navigateFallback: '/',

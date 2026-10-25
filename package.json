@@ -2,7 +2,7 @@
   "name": "@vite-pwa/vitepress",
   "type": "module",
   "version": "1.1.0",
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@11.25.0",
   "description": "Zero-config PWA for VitePress",
   "author": "antfu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -18,66 +18,76 @@
     "workbox",
     "pwa",
     "vite",
-    "vite-plugin"
+    "unplugin-pwa"
   ],
+  "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+    ".": "./dist/index.mjs",
+    "./types": {
+      "types": "./dist/index.d.mts"
     },
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*"
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "files": [
-    "*.d.ts",
     "dist"
   ],
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "scripts": {
-    "build": "unbuild",
     "lint": "eslint .",
-    "lint:fix": "nr lint --fix",
-    "prepublishOnly": "pnpm build",
-    "release": "bumpp"
+    "lint:fix": "pnpm lint --fix",
+    "update:deps": "taze -I",
+    "build": "tsdown",
+    "test:typecheck": "tsc --noEmit",
+    "prepack": "pnpm run build"
   },
   "peerDependencies": {
-    "@vite-pwa/assets-generator": "^1.0.0",
-    "vite-plugin-pwa": "^1.2.0"
+    "@vite-pwa/assets-generator": "^1.0.0 || ^2.0.0",
+    "magicast": "^0.5.0",
+    "rolldown": "^1.0.0-0",
+    "vitepress": "^1.0.0 || ^2.0.0-0"
   },
   "peerDependenciesMeta": {
     "@vite-pwa/assets-generator": {
       "optional": true
+    },
+    "magicast": {
+      "optional": true
+    },
+    "rolldown": {
+      "optional": true
     }
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^4.11.0",
-    "@antfu/ni": "^0.21.9",
-    "@types/debug": "^4.1.12",
-    "@types/node": "^20.8.7",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "bumpp": "^9.2.0",
-    "eslint": "^9.23.0",
-    "https-localhost": "^4.7.1",
-    "typescript": "^5.4.5",
-    "unbuild": "^2.0.0",
-    "vite": "^5.2.10",
-    "vite-plugin-pwa": "^1.2.0",
-    "vitepress": "^1.1.4"
+  "dependencies": {
+    "@unplugin-pwa/core": "catalog:pwa",
+    "@unplugin-pwa/inspector": "catalog:pwa",
+    "@unplugin-pwa/vite": "catalog:pwa",
+    "@vite-pwa/workbox-build": "catalog:pwa",
+    "@vite-pwa/workbox-swkit": "catalog:pwa",
+    "@vite-pwa/workbox-window": "catalog:pwa"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@algolia/client-search"
-      ]
-    },
-    "ignoredBuiltDependencies": [
-      "esbuild",
-      "vue-demi"
-    ],
-    "onlyBuiltDependencies": [
-      "sharp"
-    ]
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:eslint",
+    "@antfu/ni": "catalog:utils",
+    "@arethetypeswrong/core": "catalog:utils",
+    "@types/debug": "catalog:types",
+    "@types/node": "catalog:types",
+    "@vite-pwa/assets-generator": "catalog:pwa",
+    "@vitejs/devtools": "catalog:utils",
+    "eslint": "catalog:eslint",
+    "eslint-plugin-antfu": "catalog:eslint",
+    "https-localhost": "catalog:utils",
+    "publint": "catalog:utils",
+    "taze": "catalog:utils",
+    "tsdown": "catalog:build",
+    "typescript": "catalog:typescript",
+    "vite": "catalog:utils",
+    "vitepress": "catalog:utils"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

@@ -1,10 +1,10 @@
 /// <reference types="vite/client" />
 /// <reference lib="webworker" />
 
-import { clientsClaim } from 'workbox-core'
-import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from 'workbox-precaching'
-import { NavigationRoute, registerRoute } from 'workbox-routing'
-import { NetworkOnly } from 'workbox-strategies'
+import { clientsClaim } from '@vite-pwa/workbox-swkit/core'
+import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from '@vite-pwa/workbox-swkit/precaching'
+import { NavigationRoute, registerRoute } from '@vite-pwa/workbox-swkit/routing'
+import { NetworkOnly } from '@vite-pwa/workbox-swkit/strategies'
 
 declare let self: ServiceWorkerGlobalScope
 
@@ -17,8 +17,9 @@ precacheAndRoute(entries)
 cleanupOutdatedCaches()
 
 let allowlist: undefined | RegExp[]
-if (import.meta.env.DEV)
+if (import.meta.env.DEV) {
   allowlist = [/^\/$/]
+}
 
 if (import.meta.env.PROD) {
   const swPath = self.location.pathname.lastIndexOf('/')
@@ -59,7 +60,7 @@ if (import.meta.env.PROD) {
 
 // to allow work offline
 registerRoute(new NavigationRoute(
-  createHandlerBoundToURL('index.html'),
+  createHandlerBoundToURL('/index.html'),
   { allowlist },
 ))
 

@@ -5,11 +5,11 @@
     "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "types": [
       "vite/client",
       "vitepress",
-      "vite-plugin-pwa/client"
+      "@unplugin-pwa/core/vanillajs"
     ],
     "strict": true,
     "strictNullChecks": true,

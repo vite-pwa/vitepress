@@ -1,20 +1,20 @@
-import type { VitePWAOptions } from 'vite-plugin-pwa'
+import type { VitePWAOptions, VitePWAStrategy } from '@unplugin-pwa/core'
+import type { SWType } from '@vite-pwa/workbox-build/types'
 
-export interface PwaOptions extends Partial<VitePWAOptions> {
-  experimental?: {
-    /**
-     * When using `generateSW` strategy, include the logic to handle the `workbox.navigateFallbackAllowlist` option.
-     *
-     * @see https://github.com/vite-pwa/vitepress/issues/22
-     *
-     * @default false
-     */
-    includeAllowlist?: boolean
-  }
+export interface VitePressExperimentalOptions {
+  /**
+   * When using `generateSW` strategy, include the logic to handle the `workbox.navigateFallbackAllowlist` option.
+   *
+   * @see https://github.com/vite-pwa/vitepress/issues/22
+   *
+   * @default false
+   */
+  includeAllowlist?: boolean
 }
 
-declare module 'vitepress' {
-  interface UserConfig {
-    pwa?: PwaOptions
-  }
+export type PwaOptions<
+  UserStrategy extends VitePWAStrategy,
+  T extends SWType,
+> = VitePWAOptions<UserStrategy, T> & {
+  experimental?: VitePressExperimentalOptions
 }

@@ -1,5 +1,9 @@
+import process from 'node:process'
 import { withPwa } from '@vite-pwa/vitepress'
+import { DevTools } from '@vitejs/devtools'
 import { defineConfig } from 'vitepress'
+
+const swType = process.env.DUAL_SW === 'true' ? 'classic-and-module' : 'classic'
 
 const base = '/' // '/vite-plugin-pwa/'
 
@@ -9,15 +13,16 @@ export default withPwa(defineConfig({
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
     },
+    plugins: [DevTools()],
   },
   base,
   lang: 'en-US',
   title: 'VitePress PWA',
-  description: 'Vite Plugin PWA Integration example for VitePress',
+  description: 'Unplugin PWA Integration example for VitePress',
   head: [
     ['meta', {
       name: 'keywords',
-      content: 'PWA, VitePress, workbox, Vite, vite-plugin',
+      content: 'PWA, VitePress, workbox, Vite, unplugin-pwa',
     }],
   ],
   themeConfig: {
@@ -38,10 +43,11 @@ export default withPwa(defineConfig({
     ],
   },
   pwa: {
-    mode: 'development',
+    // mode: 'development',
     registerType: 'autoUpdate',
     injectRegister: 'script-defer',
-    includeAssets: ['favicon.svg'],
+    includeManifestIcons: false,
+    swType,
     manifest: {
       name: 'VitePress PWA',
       short_name: 'VitePressPWA',
@@ -50,7 +56,7 @@ export default withPwa(defineConfig({
     pwaAssets: {
       config: true,
     },
-    workbox: {
+    generateSW: {
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
     },
     experimental: {
@@ -58,6 +64,7 @@ export default withPwa(defineConfig({
     },
     devOptions: {
       enabled: true,
+      inspector: 'vite-devtools',
       suppressWarnings: true,
       navigateFallback: '/',
     },

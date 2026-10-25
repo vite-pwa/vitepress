@@ -1,27 +1,25 @@
 import antfu from '@antfu/eslint-config'
 
-export default await antfu(
+export default antfu(
   {
     ignores: [
       '**/build/**',
       '**/dist/**',
       '**/dev-dist/**',
       '**/node_modules/**',
-      '*.d.ts',
       '!.vitepress',
       '!.vitepress/*',
       '!.vitepress/dist/',
-      // TODO: check why README.md:L53 and CONTRIBUTING:L20 are failing
-      'README.md',
-      'CONTRIBUTING.md',
+      'pnpm-workspace.yaml',
     ],
   },
   {
-    files: ['**/*.md/*.*'],
+    files: ['**/*.md/**'],
     rules: {
       'ts/no-this-alias': 'off',
       'ts/no-unused-vars': 'off',
       'n/handle-callback-err': 'off',
+      'no-restricted-globals': 'off',
       'no-restricted-syntax': 'off',
       'no-labels': 'off',
     },
@@ -32,6 +30,13 @@ export default await antfu(
     ],
     rules: {
       'ts/no-unused-vars': 'off',
+    },
+  },
+  {
+    // it detects nested arrays wrongly
+    files: ['.github/labeler.yml'],
+    rules: {
+      'yaml/indent': 'off',
     },
   },
 )
