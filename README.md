@@ -88,10 +88,10 @@ this plugin.
 
 ## 👀 Full config
 
-Check out the type declaration [src/types.ts](./src/types.ts) and the following links for more details.
+Check out the type declaration [src/types.ts](https://github.com/vite-pwa/vitepress/blob/main/src/types.ts) and the following links for more details.
 
 - [Web app manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest)
-- [Workbox](https://developers.google.com/web/tools/workbox)
+- [Vite PWA Workbox](https://unplugin-pwa.netlify.app/vite-pwa-workbox/)
 
 ## 📄 License
 
