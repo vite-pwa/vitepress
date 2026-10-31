@@ -5,6 +5,10 @@
     </picture>
 </p>
 
+<h1 align='center'>
+Zero-config PWA for VitePress
+</h1>
+
 <p align='center'>
 <a href='https://npmx.dev/package/@vite-pwa/vitepress' target="__blank">
 <img src='https://img.shields.io/npm/v/@vite-pwa/vitepress?color=33A6B8&label=' alt="NPM version">
