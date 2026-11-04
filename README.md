@@ -87,7 +87,7 @@ export default withPwa(defineConfig({
 }))
 ```
 
-Read the [📖 documentation](https://vite-pwa-org.netlify.app/frameworks/vitepress) for a complete guide on how to configure and use
+Read the [📖 documentation](https://unplugin-pwa.netlify.app/frameworks/vitepress) for a complete guide on how to configure and use
 this plugin.
 
 ## 👀 Full config
