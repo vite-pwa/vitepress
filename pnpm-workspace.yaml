@@ -48,9 +48,9 @@ catalogs:
     eslint: ^10.15.0
     eslint-plugin-antfu: ^3.3.1
   pwa:
-    '@unplugin-pwa/core': ^0.0.8
-    '@unplugin-pwa/inspector': ^0.0.8
-    '@unplugin-pwa/vite': ^0.0.8
+    '@unplugin-pwa/core': ^0.0.10
+    '@unplugin-pwa/inspector': ^0.0.10
+    '@unplugin-pwa/vite': ^0.0.10
     '@vite-pwa/assets-generator': ^2.0.0
     '@vite-pwa/workbox-build': ^8.0.15
     '@vite-pwa/workbox-swkit': ^8.0.15
@@ -67,9 +67,9 @@ catalogs:
     https-localhost: 4.7.2
     magicast: ^0.5.5
     publint: ^0.3.25
-    rolldown: 1.2.19
+    rolldown: ~1.3.2
     taze: 21.1.0
-    vite: ^8.3.8
+    vite: ^8.4.0
     vitepress: ^2.0.0-alpha.21
     why-is-node-running: 3.2.3
   vue:
