@@ -45,7 +45,7 @@ catalogs:
     tsdown: ^0.23.7
   eslint:
     '@antfu/eslint-config': ^9.5.1
-    eslint: ^10.14.0
+    eslint: ^10.15.0
     eslint-plugin-antfu: ^3.3.1
   pwa:
     '@unplugin-pwa/core': ^0.0.8
@@ -73,7 +73,7 @@ catalogs:
     vitepress: ^2.0.0-alpha.21
     why-is-node-running: 3.2.3
   vue:
-    '@vitejs/plugin-vue': ^6.0.10
+    '@vitejs/plugin-vue': ^6.0.11
     vue: ^3.5.45
     vue-tsc: ^3.3.14
 
